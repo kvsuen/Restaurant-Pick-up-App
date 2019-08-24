@@ -3,8 +3,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    // TODO
-    // Do error checking (helper func)
+    req.session.user_id = req.params.id;
     res.redirect("/");
   });
 
