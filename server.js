@@ -11,11 +11,7 @@ const app           = express();
 const morgan        = require('morgan');
 const cookieSession = require('cookie-session');
 
-// PG database client/connection setup	const db = require('./database');
-const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
-const db = new Pool(dbParams);
-db.connect();
+const db = require('./database');
 
 // TEMPORARY DATABASE OBJECT STRUCTURE
 const users = [
@@ -67,7 +63,7 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
-const usersRoutes = require("./routes/users");
+// const usersRoutes = require("./routes/users");
 const loginRoutes = require("./routes/login");
 const logoutRoutes = require("./routes/logout");
 const registerRoutes = require("./routes/register");
@@ -75,7 +71,7 @@ const ordersRoutes = require("./routes/orders");
 const checkoutRoutes = require("./routes/checkout");
 
 // Mount all resource routes
-app.use("/api/users", usersRoutes(db));
+// app.use("/api/users", usersRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/logout", logoutRoutes(db));
 app.use("/register", registerRoutes(db));
