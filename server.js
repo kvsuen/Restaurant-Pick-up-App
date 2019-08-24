@@ -2,13 +2,13 @@
 require('dotenv').config();
 
 // Web server config
-const PORT       = process.env.PORT || 8080;
-const ENV        = process.env.ENV || "development";
-const express    = require("express");
-const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
+const PORT          = process.env.PORT || 8080;
+const ENV           = process.env.ENV || "development";
+const express       = require("express");
+const bodyParser    = require("body-parser");
+const sass          = require("node-sass-middleware");
+const app           = express();
+const morgan        = require('morgan');
 const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
@@ -17,14 +17,14 @@ const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
-// TEMPORARY DATABASE
+// TEMPORARY DATABASE OBJECT STRUCTURE
 const users = [
   {
     id: 0,
     name: "test",
     email: "test@test.com",
     password: "test",
-    phone: 1231231234,
+    phoneNumber: 1231231234,
     creditCardNumber: 1234123412341234,
     cardExpiryDate: 1120,
     cardSecurityCode: 123
@@ -44,10 +44,10 @@ const userOrder = [
   }
 ];
 
-// Cookie session set up
+// Cookie session setup
 app.use(cookieSession({
   name: "session",
-  keys: ["game"],
+  keys: ["KAK"],
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
 
@@ -67,16 +67,10 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
 
 // Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
-// Note: mount other resources here, using the same pattern above
-
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -123,5 +117,5 @@ app.post("/checkout", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`KAK listening on port ${PORT}`);
 });
