@@ -11,7 +11,7 @@ module.exports = (db) => {
     // Do error checking (helper func)
     // Check for empty form fields
     // Call a function to make an INSERT query to database
-    res.redirect('/');
+    res.redirect("/");
   });
 
   return router;

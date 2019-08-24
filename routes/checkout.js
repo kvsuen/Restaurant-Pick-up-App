@@ -2,14 +2,14 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/checkout", (req, res) => {
+  router.get("/", (req, res) => {
     res.render("checkout");
   });
 
-  router.post("/checkout", (req, res) => {
+  router.post("/", (req, res) => {
     // TO DO
     // Call a function to query database
-    res.redirect('/');
+    res.redirect("/");
   });
 
   return router;
