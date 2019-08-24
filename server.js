@@ -14,14 +14,8 @@ const cookieSession = require('cookie-session');
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
-const pool = new Pool(dbParams);
-pool.connect();
-
-module.exports = {
-  query: (text, params, callback) => {
-    return pool.query(text, params, callback);
-  },
-};
+const db = new Pool(dbParams);
+db.connect();
 
 // TEMPORARY DATABASE OBJECT STRUCTURE
 const users = [
@@ -74,52 +68,25 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 const usersRoutes = require("./routes/users");
+const loginRoutes = require("./routes/login");
+const logoutRoutes = require("./routes/logout");
+const registerRoutes = require("./routes/register");
+const ordersRoutes = require("./routes/orders");
+const checkoutRoutes = require("./routes/checkout");
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(db));
+app.use("/login", loginRoutes(db));
+app.use("/logout", logoutRoutes(db));
+app.use("/register", registerRoutes(db));
+app.use("/orders", ordersRoutes(db));
+app.use("/checkout", checkoutRoutes(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   res.render("index");
-});
-
-app.get("/register", (req, res) => {
-  res.render("register");
-});
-
-app.get("/orders", (req, res) => {
-  res.render("orders");
-});
-
-app.get("/checkout", (req, res) => {
-  res.render("checkout");
-});
-
-app.post("/register", (req, res) => {
-  // TODO
-  // Do error checking (helper func)
-  // Check for empty form fields
-  // Call a function to make an INSERT query to database
-  res.redirect('/');
-});
-
-app.post("/login", (req, res) => {
-  // TODO
-  // Do error checking (helper func)
-  res.redirect('/');
-});
-
-app.post("/logout", (req, res) => {
-  req.session = null;
-  res.redirect('/');
-});
-
-app.post("/checkout", (req, res) => {
-  // TO DO
-  // Call a function to query database
-  res.redirect('/');
 });
 
 app.listen(PORT, () => {
