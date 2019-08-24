@@ -14,8 +14,14 @@ const cookieSession = require('cookie-session');
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
-const db = new Pool(dbParams);
-db.connect();
+const pool = new Pool(dbParams);
+pool.connect();
+
+module.exports = {
+  query: (text, params, callback) => {
+    return pool.query(text, params, callback);
+  },
+};
 
 // TEMPORARY DATABASE OBJECT STRUCTURE
 const users = [
