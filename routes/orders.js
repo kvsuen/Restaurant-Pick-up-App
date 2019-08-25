@@ -3,7 +3,18 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    res.render("orders");
+    let templateVars = {};
+
+    Promise.all([db.getMenu("main"), db.getMenu("appetizer"), db.getMenu("dessert"), db.getMenu("drink")])
+      .then((values) => {
+        templateVars.mains = values[0];
+        templateVars.appetizers = values[1];
+        templateVars.desserts = values[2];
+        templateVars.drinks = values[3];
+        res.render("orders", templateVars);
+      })
+      .catch(err => console.error(null, err.stack));
+
   });
   return router;
 };
