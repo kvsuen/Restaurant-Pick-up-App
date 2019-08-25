@@ -13,33 +13,6 @@ const cookieSession = require('cookie-session');
 
 const db = require('./database');
 
-// TEMPORARY DATABASE OBJECT STRUCTURE
-const users = [
-  {
-    id: 0,
-    name: "test",
-    email: "test@test.com",
-    password: "test",
-    phoneNumber: 1231231234,
-    creditCardNumber: 1234123412341234,
-    cardExpiryDate: 1120,
-    cardSecurityCode: 123
-  }
-];
-
-const userOrder = [
-  {
-    menuItem: "fries",
-    quantity: 3,
-    purchasePrice: 500
-  },
-  {
-    menuItem: "krab",
-    quantity: 3,
-    purchasePrice: 50000
-  }
-];
-
 // Cookie session setup
 app.use(cookieSession({
   name: "session",
