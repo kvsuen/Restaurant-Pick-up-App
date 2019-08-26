@@ -14,3 +14,4 @@ CREATE TABLE users (
   card_security_code VARCHAR(255),
   phone_number VARCHAR(255) NOT NULL
 );
+

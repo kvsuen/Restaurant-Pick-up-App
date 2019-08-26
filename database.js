@@ -19,15 +19,14 @@ const userRegister = function(user) {
   return pool.query(`
   INSERT INTO users
   (
-  id,
   name,
   email,
   password,
   phone_number
   )
   VALUES
-  ($1, $2, $3, $4, $5) RETURNING *
-  `, [user.id, user.name, user.email, user.password, user.phone_number])
+  ($1, $2, $3, $4) RETURNING *
+  `, [user.name, user.email, user.password, user.phone_number])
   .then(res => res.rows)
   .catch(err => console.error(null, err.stack));
 }
@@ -36,36 +35,97 @@ module.exports = userRegister
 
 // Menu: Lists whole menu (items, price, picture, description)
 
-const getMenu = function() {
-  return pool.query(`
+const getMenu = function(type = null) {
+  let queryString = `
   SELECT *
   FROM menu_items
-  `)
-  .then(res => res.rows)
-  .catch(err => console.error(null, err.stack));
-}
+  `;
+
+  if (type) {
+    queryString += `WHERE type = '${type}'`;
+  }
+
+  return pool.query(queryString)
+    .then(res => res.rows)
+    .catch(err => console.error(null, err.stack));
+ };
 
 module.exports = getMenu
 
-// Order: Creates an order
+// Order Timestamp: Creates a timestamp of a user's order
 
-const createOrder = function(order) {
+const createOrderTime = function(order) {
   return pool.query(`
-  INSERT INTO orders (order_time) VALUES ($1)
-  INSERT INTO menu_items (item) VALUES ($2)
-  INSERT INTO menu_items (price) VALUES ($3)
-  INSERT INTO order_details (quantity) VALUES ($4)
+  INSERT INTO orders (order_time, user_id, order_id)
+  SELECT orders.order_time, orders.user_id, order_details.order_id
+  FROM (
+    VALUES
+    ($1, $2, $3)
+    )
+  JOIN order_details ON orders.id = order_id
   RETURNING *
-  `, [order.order_time, order.item, order.price, order.quantity])
+  `, [order.order_time, order.user_id, order.order_id])
     .then(res => res.rows)
     .catch(err => console.error(null, err.stack));
 }
 
-module.exports = createOrder
+module.exports = createOrderTime
+
+// Order Details: Creates a quantity of items ordered for a user's order
+
+const createOrderDetails = function(order) {
+  return pool.query(`
+  INSERT INTO order_details (quantity, user_id, order_id)
+  SELECT order_details.quantity, orders.user_id, order_details.order_id
+  FROM (
+    VALUES
+    ($1, $2, $3)
+    )
+  JOIN orders ON orders.id = order_id
+  RETURNING *
+  `, [order.quantity, order.user_id, order.order_id])
+  .then(res => res.rows)
+  .catch(err => console.error(null, err.stack));
+}
+
+module.exports = createOrderDetails
+
+// Insert users credit card information
+
+const usersCreditCard = function(card) {
+  return pool.query(`
+  INSERT INTO users (credit_card_number, card_expiry_date, card_security_code)
+  VALUES ($1, $2, $3)
+  RETURNING *
+  `, [card.credit_card_number, card.card_expiry_date, card.card_security_code])
+  .then(res => res.rows)
+  .catch(err => console.error(null, err.stack));
+}
+
+module.exports = usersCreditCard
+
+// Insert credit card information into orders table from users
+
+const ordersCreditCard = function (card) {
+  return pool.query(`
+  INSERT INTO orders (credit_card_number, card_expiry_date, card_security_code)
+  SELECT users.credit_card_number, users.card_expiry_date, users.card_security_code
+  FROM (
+    VALUES
+    ($1, $2, $3)
+  )
+  JOIN users ON users.id = user_id
+  RETURNING *
+  `, [card.credit_card_number, card.card_expiry_date, card.card_security_code])
+  .then(res => res.rows)
+  .then(err => console.error(null, err.stack));
+}
+
+module.exports = ordersCreditCard
 
 // Purchase Price: Creates a record of price paid for each item
 
-const purchasePrice = function(userid) {
+const createPurchasePrice = function(userid) {
   return pool.query(`
   INSERT INTO order_details (purchase_price) SELECT menu_items.price
   FROM users
@@ -79,13 +139,13 @@ const purchasePrice = function(userid) {
   .catch(err => console.error(null, err.stack));
 }
 
-module.exports = purchasePrice
+module.exports = createPurchasePrice
 
 // Total Price: Gets the total PURCHASE price for an order (PAST/PRESENT)
 
 const totalPurchasePrice = function() {
   return pool.query(`
-  SELECT SUM(purchase_price * quantity) as total_purchase_price
+  SELECT (purchase_price * quantity) as total_purchase_price
   FROM order_details
   `)
   .then(res => res.rows[0])
@@ -98,7 +158,7 @@ module.exports = totalPurchasePrice
 
 const totalPrice = function() {
   return pool.query(`
-  SELECT SUM(menu_items.price * quantity) as total_price
+  SELECT (menu_items.price * quantity) as total_price
   FROM order_details
   JOIN menu_items ON menu_items.id = menu_item_id
   `)
@@ -106,34 +166,21 @@ const totalPrice = function() {
 
 module.exports = totalPrice
 
-// Quantity of Items: Creates a record of quantity of menu items picked in an order
-
-const quantityOfItems = function(items) {
-  return pool.query(`
-  INSERT INTO order_details (quantity)
-  VALUES count(items)
-  `, [items])
-  .then(res => res.rows)
-  .catch(err => console.error(null, err.stack));
-}
-
-module.exports = quantityOfItems
-
 // Order History: Shows order history (Menu Item, Purchase Price, Quantity, Total Price, Timestamp)
 
 const userOrderHistory = function(id) {
   return pool.query(`
   SELECT
-  orders.order_time as order_time
-  menu_items.item as item,
-  order_details.purchase_price as price,
-  order_details.quantity as quantity,
-  SUM(purchase_price * quantity) as total_price,
-  FROM users
-  JOIN orders ON users.id = user_id
-  JOIN order_details ON orders.id = order_details.order_id
-  JOIN menu_items ON menu_items.id on order_details.menu_item_id
-  WHERE users.id = $1
+    orders.id,
+    orders.order_time,
+    order_details.purchase_price,
+    order_details.quantity,
+    (order_details.purchase_price * order_details.quantity) as total_price,
+    menu_items.item
+  FROM orders
+  INNER JOIN order_details ON orders.id = order_details.order_id
+  INNER JOIN menu_items ON menu_items.id = order_details.menu_item_id
+  WHERE orders.user_id = $1
   `, [id])
   .then(res => res.rows)
   .catch(err => console.error(null, err.stack));
