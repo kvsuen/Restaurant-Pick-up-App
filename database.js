@@ -75,7 +75,7 @@ const createOrderTime = function(order) {
     .catch(err => console.error(null, err.stack));
 }
 
-module.exports = createOrderTime
+exports.createOrderTime = createOrderTime
 
 // Order Details: Creates a quantity of items ordered for a user's order
 
@@ -94,7 +94,7 @@ const createOrderDetails = function(order) {
   .catch(err => console.error(null, err.stack));
 }
 
-module.exports = createOrderDetails
+exports.createOrderDetails = createOrderDetails
 
 // Insert users credit card information
 
@@ -108,7 +108,7 @@ const usersCreditCard = function(card) {
   .catch(err => console.error(null, err.stack));
 }
 
-module.exports = usersCreditCard
+exports.usersCreditCard = usersCreditCard
 
 // Insert credit card information into orders table from users
 
@@ -127,7 +127,7 @@ const ordersCreditCard = function (card) {
   .then(err => console.error(null, err.stack));
 }
 
-module.exports = ordersCreditCard
+exports.ordersCreditCard = ordersCreditCard
 
 // Purchase Price: Creates a record of price paid for each item
 
@@ -145,7 +145,7 @@ const createPurchasePrice = function(userid) {
   .catch(err => console.error(null, err.stack));
 }
 
-module.exports = createPurchasePrice
+exports.createPurchasePrice = createPurchasePrice
 
 // Total Price: Gets the total PURCHASE price for an order (PAST/PRESENT)
 
