@@ -1,0 +1,74 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f4efeb;
+  font-family: 'Cardo', serif;
+}
+
+#bg {
+  background-image: url('/images/jay-wennington-N_Y88TWmGwA-unsplash-min.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  -ms-background-size: cover;
+  background-size: cover;
+  height: 250px;
+  max-width: 1152px;
+}
+
+#logo {
+  max-width: 100%;
+}
+.secTitle {
+  font-family: 'Alex Brush', cursive;
+  font-size: 3em;
+  font-weight: 500;
+  color: #321602;
+}
+
+.dishName {
+  font-weight: 600;
+  font-variant: small-caps;
+  font-size: 1.1em;
+}
+
+.dishDesc {
+  font-size: .9em;
+}
+
+.price {
+  text-align: left;
+}
+
+.add {
+  text-align: right;
+  display: flex;
+}
+
+/* plus minus quantity feature */
+
+.table td {
+  padding-left: 30px;
+}
+
+.add input::-webkit-inner-spin-button,
+.add input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+.add input {
+  width: 2rem;
+  background: none;
+  outline: none;
+  border: 0;
+  text-align: center;
+}
+
+.add a {
+  color: black;
+  text-decoration: none;
+
+}

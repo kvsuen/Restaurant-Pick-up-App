@@ -1,111 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orders</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders</title>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Alex+Brush|Cardo|Great+Vibes'>
+  <link rel="stylesheet" href="styles/orders_style.css">
 
-  <body>
-      <% include partials/_header %>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
 
-    <h1>Orders</h1>
-
-    <main>
-      <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">Menu</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#mains">Mains<span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#appetizers">Appetizers<span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#desserts">Desserts<span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#drinks">Drinks<span class="sr-only">(current)</span></a>
-              </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-          </div>
-        </nav>
-        <section>
-          <div id="mains">
-            <h2>Mains</h2>
-            <div>
+<body>
+  <!-- partial:index.partial.html -->
+  <div class="container">
+    <div class="row" id="bg">
+    </div>
+    <!--begin menu-->
+    <div class="row">
+      <div class="col-md-6">
+        <!--left-hand column-->
+        <div class="table-flexible">
+          <table class="table borderless">
+            <tbody>
+              <tr>
+                <td colspan="3" class="text-center">
+                  <span class="secTitle">Mains</span>
+                </td>
+              </tr>
               <% for (const item of mains) { %>
-              <%=item.item %> $<%=(item.price / 100) %>
-              </br>
-              <%=item.description %>
-              </br>
-              </br>
+              <tr>
+                <td>
+                  <span class="dishName"><%=item.item %></span>
+                  </br>
+                  <span class="dishDesc"><%=item.description %></span>
+                <td class="price"><%=(item.price / 100) %></td>
+                <td class="add">
+                  <input class="input-group-field" type="number" name="quantity" value="0" max="100" min="0">
+                </td>
+              </tr>
               <% } %>
-            </div>
-          </div>
-          <div id="appetizers">
-            <h2>Appetizers</h2>
-            <div>
-                <% for (const item of appetizers) { %>
-                <%=item.item %> $<%=(item.price / 100) %>
-                </br>
-                <%=item.description %>
-                </br>
-                </br>
-                <% } %>
-              </div>
-          </div>
-          <div id="desserts">
-            <h2>Desserts</h2>
-            <div>
-                <% for (const item of desserts) { %>
-                <%=item.item %> $<%=(item.price / 100) %>
-                </br>
-                <%=item.description %>
-                </br>
-                </br>
-                <% } %>
-              </div>
-          </div>
-          <div id="drinks">
-            <h2>Drinks</h2>
-            <div>
-                <% for (const item of drinks) { %>
-                <%=item.item %> $<%=(item.price / 100) %>
-                </br>
-                <%=item.description %>
-                </br>
-                </br>
-                <% } %>
-              </div>
-          </div>
-        </section>
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <aside>
-        Side bar goes here
-        <a class="btn btn-primary" href="/checkout" role="button">Go to checkout</a>
-      </aside>
-    </main>
+      <div class="col-md-6">
+        <!--right-hand column-->
+        <div class="table-flexible">
+          <table class="table borderless">
+            <tbody>
+              <tr>
+                <td colspan="3" class="text-center">
+                  <span class="secTitle">Appetizers</span>
+                </td>
+              </tr>
+              <% for (const item of appetizers) { %>
+              <tr>
+                <td>
+                  <span class="dishName"><%=item.item %></span>
+                  </br>
+                  <span class="dishDesc"><%=item.description %></span>
+                <td class="price"><%=(item.price / 100) %></td>
+                <td class="add">
+                  <input class="input-group-field" type="number" name="quantity" value="0" max="100" min="0">
+                </td>
+              </tr>
+              <% } %>
+
+              <tr>
+                <td colspan="3" class="text-center">
+                  <span class="secTitle">Drinks</span>
+                </td>
+              </tr>
+              <% for (const item of drinks) { %>
+              <tr>
+                <td>
+                  <span class="dishName"><%=item.item %></span>
+                  </br>
+                  <span class="dishDesc"><%=item.description %></span>
+                <td class="price"><%=(item.price / 100) %></td>
+                <td class="add">
+                  <input class="input-group-field" type="number" name="quantity" value="0" max="100" min="0">
+                </td>
+              </tr>
+              <% } %>
+
+              <tr>
+                <td colspan="3" class="text-center">
+                  <span class="secTitle">Desserts</span>
+                </td>
+              </tr>
+              <% for (const item of desserts) { %>
+              <tr>
+                <td>
+                  <span class="dishName"><%=item.item %></span>
+                  </br>
+                  <span class="dishDesc"><%=item.description %></span>
+                <td class="price"><%=(item.price / 100) %></td>
+                <td class="add">
+                  <input class="input-group-field" type="number" name="quantity" value="0" max="100" min="0">
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- partial -->
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+  <script>
+    $(function () {
+
+      $("tr .add").prepend('<a href="#" class="input-group-addon plus increment">+</i></a>');
+      $("tr .add").append('<a href="#" class="input-group-addon minus increment">-</i></a>');
+
+      console.log('test')
+
+      $(".increment").on("click", function () {
+
+        var $button = $(this);
+        var oldValue = $button.parent().find("input").val();
+
+        if ($button.text() == "+") {
+          var newVal = parseFloat(oldValue) + 1;
+        } else {
+          // Don't allow decrementing below zero
+          if (oldValue > 0) {
+            var newVal = parseFloat(oldValue) - 1;
+          } else {
+            newVal = 0;
+          }
+        }
+
+        $button.parent().find("input").val(newVal);
+
+      });
+    });
+  </script>
+
+  <main>
 
 
-  </body>
+    <aside>
+      Side bar goes here
+      <a class="btn btn-primary" href="/checkout" role="button">Go to checkout</a>
+    </aside>
+  </main>
+
+
+</body>
