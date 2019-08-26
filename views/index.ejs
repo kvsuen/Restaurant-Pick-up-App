@@ -1,24 +1,623 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <!-- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
+  <!-- Bootstrap CSS -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-  <body>
-      <% include partials/_header %>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script> -->
 
-    <h1>Hello World!</h1>
-    <a class="btn btn-primary" href="/orders" role="button">Order Now</a>
-  </body>
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css'>
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Arvo:400,700'>
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Kreon:300,400,700'>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <!--
+
+  <h1>Hello World!</h1>
+  <a class="btn btn-primary" href="/orders" role="button">Order Now</a> -->
+
+  <div id="menu" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header visible-xs">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <h2>TastyBox</h2>
+        </a>
+      </div><!-- navbar-header -->
+      <div id="navbar" class="navbar-collapse collapse">
+        <div class="hidden-xs" id="logo"><a href="#header">
+            <img src="https://41.media.tumblr.com/3172b0af03ae569209fe2b15c2757d78/tumblr_ntjox0Wmuv1ud7rr3o1_100.png"
+              alt="">
+          </a></div>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#story">Story</a></li>
+          <li><a href="#reservation">Reservation</a></li>
+          <li><a href="#chefs">Our Chefs</a></li>
+
+
+          <li><a href="#facts">Facts</a></li>
+          <li><a href="#food-menu">Food Menu</a></li>
+          <li><a href="#special-offser">Special Offers</a></li>
+
+          <!--fix for scroll spy active menu element-->
+          <li style="display:none;"><a href="#header"></a></li>
+
+        </ul>
+      </div>
+      <!--/.navbar-collapse -->
+    </div><!-- container -->
+  </div><!-- menu -->
+
+  <div id="header">
+    <div class="bg-overlay"></div>
+    <div class="center text-center">
+      <div class="banner">
+        <h1 class="">TastyBox</h1>
+      </div>
+      <div class="subtitle">
+        <h4>Fresh...Juicy...TastyBox!</h4>
+      </div>
+    </div>
+    <div class="bottom text-center">
+      <a id="scrollDownArrow" href="#"><i class="fa fa-chevron-down"></i></a>
+    </div>
+  </div>
+  <!-- /#header -->
+
+  <div id="story" class="light-wrapper">
+    <section class="ss-style-top"></section>
+    <div class="container inner">
+      <h2 class="section-title text-center">Our Story</h2>
+      <p class="lead main text-center">We are a fast food chain taking Brazil by storm.</p>
+      <div class="row text-center story">
+        <div class="col-sm-4">
+          <div class="col-wrapper">
+            <div class="icon-wrapper"> <i class="fa fa-anchor"></i> </div>
+            <h3>EST. 2013</h3>
+            <p>We're the fastest growing fast food chain in Brazil since 2013.</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="col-wrapper">
+            <div class="icon-wrapper"> <i class="fa  fa-cutlery"></i> </div>
+            <h3>Cooking Traditions</h3>
+            <p>American burger tradition fused with world famous Brazilian "Churrasco". </p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="col-wrapper">
+            <div class="icon-wrapper"> <i class="fa fa-coffee"></i> </div>
+            <h3>Food Quality</h3>
+            <p>Award winning best sauce of the year 2 times in a row. 'Nough said!.</p>
+          </div>
+        </div>
+      </div>
+      <!-- /.services -->
+    </div>
+    <!-- /.container -->
+    <section class="ss-style-bottom"></section>
+  </div><!-- #story -->
+  <div id="facts" class="parallax parallax2 facts">
+    <div class="bg-overlay"></div>
+    <div class="container inner">
+      <div class="row text-center services-3">
+        <div class="col-sm-3">
+          <div class="col-wrapper">
+            <div class="icon-border bm10"> <i class="fa fa-beer"></i> </div>
+            <h4>9796518</h4>
+            <p>Refreshments Served</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="col-wrapper">
+            <div class="icon-border bm10"> <i class="fa fa-cutlery"></i> </div>
+            <h4>5939472</h4>
+            <p>Meals Served</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="col-wrapper">
+            <div class="icon-border bm10"> <i class="fa fa-truck"></i> </div>
+            <h4>2188764</h4>
+            <p>Meals Delivered</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="col-wrapper">
+            <div class="icon-border bm10"> <i class="fa fa-users"></i> </div>
+            <h4>1480523</h4>
+            <p>Customers in Brazil</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+  </div><!-- #facts -->
+
+
+
+
+  <div id="food-menu" class="light-wrapper">
+    <section class="ss-style-top"></section>
+    <div class="container inner">
+      <h2 class="section-title text-center">Fresh, Juicy, TastyBox Menu!</h2>
+      <p class="lead main text-center"></p>
+
+      <div class="row">
+        <div class="col-sm-3 col-md-3">
+          <div class="menu-images "><img
+              src="https://41.media.tumblr.com/bfd11a1b6b6ffab454a4bc067f34627b/tumblr_ntebgxU6941ud7rr3o1_400.jpg"
+              alt="LambBancon"></div>
+          <div class="menu-titles">
+            <h1 class="">LamBacon</h1>
+          </div>
+          <div class="menu-items ">
+            <ul>
+              <li>Juicy...</li>
+              <li>Tasty...</li>
+              <li>Lamb...</li>
+              <li>Bacon...</li>
+              <li>Fresh...</li>
+              <li>Lettuce...</li>
+              <li>Tomatos...</li>
+              <li>Mint-Cilantro-Garlic Sauce&copy;</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+          <div class="menu-images "><img
+              src="https://40.media.tumblr.com/c468fcb7d4f4362b0de01e7e374bcfd5/tumblr_nted40Ix4z1ud7rr3o1_400.jpg"
+              alt="El Dorado"></div>
+          <div class="menu-titles">
+            <h1 class="">Dutch Von Cheesy </h1>
+          </div>
+          <div class="menu-items ">
+            <ul>
+              <li>Juicy...</li>
+              <li>Tasty...</li>
+              <li>Dutch Cheddar Cheese...</li>
+              <li>Fresh...</li>
+              <li>Lettuce...</li>
+              <li>Tomatos...</li>
+              <li>Premium Smoky Gaucho Sauce&copy;</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+          <div class="menu-images "><img
+              src="https://41.media.tumblr.com/5892daadaed762fbc9b3553a1b876a04/tumblr_nteecactZc1ud7rr3o1_1280.jpg"
+              alt="Smoothies"></div>
+          <div class="menu-titles">
+            <h1 class="">Swiss Champignon</h1>
+          </div>
+          <div class="menu-items ">
+            <ul>
+              <li>Juicy...</li>
+              <li>Tasty...</li>
+              <li>Grilled Mushroom...</li>
+              <li>SirLoin Beef...</li>
+              <li>Fresh...</li>
+              <li>Tomatos...</li>
+              <li>Grilled Onions...</li>
+              <li>Smokey Mushroom Mayo&copy;</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+          <div class="menu-images "><img
+              src="https://41.media.tumblr.com/6f3ee3d900b7018d98e9a63a6877ced9/tumblr_ntee05e9Y41ud7rr3o1_1280.jpg"
+              alt="TastyBoxTasty"></div>
+          <div class="menu-titles">
+            <h1 class="">TastyBoxTasty</h1>
+          </div>
+          <div class="menu-items ">
+            <ul>
+              <li>Juicy...</li>
+              <li>Tasty...</li>
+              <li>Grilled...</li>
+              <li>Picanha Beef...</li>
+              <li>Fresh...</li>
+              <li>Lettuce...</li>
+              <li>Tomatos...</li>
+              <li>Premium SuperChipotle Sauce&copy;</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3 col-md-3">
+          <div class="menu-images "><img
+              src="https://40.media.tumblr.com/6a1ff4e6906784da2edce2aaef9180e9/tumblr_ntee2rarP71ud7rr3o1_400.jpg"
+              alt="PremiumTasty"></div>
+          <div class="menu-titles">
+            <h1 class="">PremiumTasty</h1>
+          </div>
+          <div class="menu-items ">
+            <ul>
+              <li>Juicy...</li>
+              <li>Tasty...</li>
+              <li>Grilled...</li>
+              <li>Premium Angus Beef...</li>
+              <li>Fresh...</li>
+              <li>Premium Lettuce...</li>
+              <li>Premium Tomatos...</li>
+              <li>Premium Whisky 'n Herbs Sauce&copy;</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+          <div class="menu-images "><img
+              src="https://36.media.tumblr.com/47514f75bd27eee85905be08781c1c37/tumblr_ntee57Pef51ud7rr3o1_1280.jpg"
+              alt="CheeseBaconWar"></div>
+          <div class="menu-titles">
+            <h1 class="">Cheese&Bacon War</h1>
+          </div>
+          <div class="menu-items ">
+            <ul>
+              <li>Juicy...</li>
+              <li>Tasty...</li>
+              <li>Grilled...</li>
+              <li>SirLoin Beef...</li>
+              <li>Premium Bacon...</li>
+              <li>Smoked Cheddar...</li>
+              <li>More Premium Bacon...</li>
+              <li>Pepper-Garlic-Chilli Sauce&copy;</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+          <div class="menu-images "><img
+              src="https://40.media.tumblr.com/249b55f25e49eddca7ed1b8cbef655a1/tumblr_ntee7hR7hG1ud7rr3o1_1280.jpg"
+              alt="Smoothies"></div>
+          <div class="menu-titles">
+            <h1 class="">Double Trouble</h1>
+          </div>
+          <div class="menu-items ">
+            <ul>
+              <li>Juicy...</li>
+              <li>Tasty...</li>
+              <li>Grilled...</li>
+              <li>Angus Beef...</li>
+              <li>Premium Bacon...</li>
+              <li>Premium Lettuce...</li>
+              <li>Premium House Bun...</li>
+              <li>Premium Chipotle&Limones Sauce&copy;</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+          <div class="menu-images "><img
+              src="https://41.media.tumblr.com/f79a3418ac5c73450ad1d80e627dd36e/tumblr_ntee9uHgZT1ud7rr3o1_540.jpg"
+              alt="Sargent Pepper!"></div>
+          <div class="menu-titles">
+            <h1 class="">Sargent Pepper!</h1>
+          </div>
+          <div class="menu-items ">
+            <ul>
+              <li>Juicy...</li>
+              <li>Tasty...</li>
+              <li>Grilled...</li>
+              <li>TenderLoin Beef...</li>
+              <li>Premium Bacon...</li>
+              <li>Cheddar....</li>
+              <li>Dutch Cheddar Cheese...</li>
+              <li>Lime&Pepper&Onion Mayo&copy;</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.container -->
+    <section class="ss-style-bottom"></section>
+  </div>
+  <!--/#food-menu-->
+
+
+
+
+  <div id="special-offser" class="parallax pricing">
+    <div class="bg-overlay-white"></div>
+    <div class="container inner">
+
+
+      <h2 class="section-title text-center">TastyBoxBites</h2>
+      <p class="lead main text-center">Some of our all time favorites!</p>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+
+          <div class="pricing-item">
+
+            <a href="#"><img class="img-responsive img-thumbnail"
+                src="https://40.media.tumblr.com/f2c88699722c4ff010cf4574f66ee615/tumblr_ntdeeqTPxs1ud7rr3o1_540.jpg"
+                alt=""></a>
+
+            <div class="pricing-item-details">
+
+              <h3><a href="#">TastyBoxBite</a></h3>
+
+              <p>Char Grilled Chicken Filet. Your Choice of: Fresh Lettuce, Tomatos and Red Onions, and Award Winning
+                Premium Filet Sauce&copy;</p>
+
+              <a class="btn btn-danger" href="#">Order now</a>
+              <div class="clearfix"></div>
+            </div>
+            <!--price tag-->
+            <span class="hot-tag br-red">$16</span>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+
+          <div class="pricing-item">
+
+            <a href="#"><img class="img-responsive img-thumbnail"
+                src="https://36.media.tumblr.com/0d9c63e8da5a52e19d58afba5a937f7c/tumblr_ntdeir37zJ1ud7rr3o1_400.jpg"
+                alt=""></a>
+
+            <div class="pricing-item-details">
+
+              <h3><a href="#">JuicyBoxBite</a></h3>
+
+              <p>Char Grilled Picanha Beef. Your Choice of: Fresh Lettuce, Tomatos, Jalapeños and Red Onions and Award
+                Winning Premium Smoky Gaucho Sauce&copy;</p>
+
+              <a class="btn btn-danger" href="#">Order now</a>
+              <div class="clearfix"></div>
+            </div>
+            <!--price tag-->
+            <span class="hot-tag br-lblue">$17</span>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="clearfix visible-md"></div>
+        <div class="col-md-6 col-sm-6">
+
+          <div class="pricing-item">
+
+            <a href="#"><img class="img-responsive img-thumbnail"
+                src="https://40.media.tumblr.com/90deb07aa9071a6de25739c32a6e6d62/tumblr_ntdejqEuUE1ud7rr3o1_400.jpg"
+                alt=""></a>
+
+            <div class="pricing-item-details">
+
+              <h3><a href="#">FishyBoxBite</a></h3>
+
+              <p>Char Grilled Breaded Salmon Filet. Your Choice of: Fresh Lettuce, Tomatos, Lime slices and Red Onions
+                and Award Winning Premium Chipotle&Limones Sauce&copy</p>
+
+              <a class="btn btn-danger" href="#">Order now</a>
+              <div class="clearfix"></div>
+            </div>
+            <!--price tag-->
+            <span class="hot-tag br-green">$14</span>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+
+          <div class="pricing-item">
+
+            <a href="#"><img class="img-responsive img-thumbnail"
+                src="https://40.media.tumblr.com/d341dd2b29c7de51d25b796a0110b8df/tumblr_ntddiizdyH1ud7rr3o1_400.jpg"
+                alt=""></a>
+
+            <div class="pricing-item-details">
+
+              <h3><a href="#">ShrimppyBoxBite</a></h3>
+
+              <p>Char Grilled Breaded Tiger Shrimps. Your Choice of: Fresh Lettuce, Tomatos, Lime slices and Red Onions
+                and Award Winning Premium Chipotle&Limones Sauce&copy</p>
+
+              <a class="btn btn-danger" href="#">Order now</a>
+              <div class="clearfix"></div>
+            </div>
+            <!--price tag-->
+            <span class="hot-tag br-red">$17</span>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.container -->
+  </div><!-- /#special-offser -->
+
+
+
+
+  <div id="reservation" class="light-wrapper">
+    <section class="ss-style-top"></section>
+    <div class="container inner">
+      <h2 class="section-title text-center">Reservation</h2>
+      <p class="lead main text-center">Reserve your table &amp; enjoy.</p>
+      <div class="row">
+        <div class="col-md-6">
+          <form class="form form-table" method="post" name="">
+            <div class="form-group">
+              <h4>Fill the form for table reservation (all fields required)</h4>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6 col-md-6 form-group">
+                <label class="sr-only" for="first_name1">first name</label>
+                <input class="form-control hint" type="text" id="first_name1" name="first_name" placeholder="First name"
+                  required="">
+              </div>
+              <div class="col-lg-6 col-md-6 form-group">
+                <label class="sr-only" for="last_name1">last name</label>
+                <input class="form-control hint" type="text" id="last_name1" name="last_name" placeholder="Last name"
+                  required="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 form-group">
+                <label class="sr-only" for="email1">email</label>
+                <input class="form-control hint" type="email" id="email1" name="email" placeholder="Email@domain.com"
+                  required="">
+              </div>
+              <div class="col-lg-6 col-md-6 form-group">
+                <label class="sr-only" for="phone1">phone</label>
+                <input class="form-control hint" type="text" id="phone1" name="phone" placeholder="Phone" required="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 form-group">
+                <label class="sr-only" for="reserv_date1">reservation date</label>
+                <input class="form-control datepicker hasDatepicker hint" type="text" id="reserv_date1"
+                  name="reserv_date" placeholder="Reservation date" required="">
+              </div>
+              <div class="col-lg-6 col-md-6 form-group">
+                <label class="sr-only" for="numb_guests1">number of guests</label>
+                <input class="form-control hint" type="text" id="numb_guests1" name="numb_guests"
+                  placeholder="Number of guests" required="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 form-group">
+                <label class="sr-only" for="alt_reserv_date1">time from</label>
+                <input class="form-control datepicker hasDatepicker hint" type="text" id="alt_reserv_date1"
+                  name="alt_reserv_date" placeholder="Time from" required="">
+              </div>
+              <div class="col-lg-6 col-md-6 form-group">
+                <label class="sr-only" for="time1">time</label>
+                <input class="form-control timepicker ui-timepicker-input hint" type="text" id="time1" name="time"
+                  placeholder="Time to" required="" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <p></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <button type="submit" class="btn btn-danger btn-lg">Reserve!</button>
+              </div>
+            </div>
+          </form>
+        </div><!-- col-md-6 -->
+        <div class="col-md-5 col-md-offset-1">
+
+          <h3><i class="fa fa-clock-o fa-fw"></i>Hours</h3>
+          <h4>Lunch</h4>
+          <p>Mon to Fri: 12:00 PM - 5:00 PM</p>
+          <h4>Dinner</h4>
+          <p>Mon to Sat: 6:00 PM - 1:00 AM<br>Sun: 5:30 PM - 12:00 AM</p>
+
+          <h3><i class="fa fa-map-marker fa-fw"></i>Directions</h3>
+          <p>Av das Américas, 4.666, Shopping Barra, Barra da Tijuca, Rio de Janeiro, RJ, Brazil</p>
+
+          <h3><i class="fa fa-mobile fa-fw"></i>Contacts</h3>
+          <p>Email: <a href="mailto:yourname@tastybox.com">tastybox@customerservice.com</a></p>
+          <p>Phone: +234 3456 678</p>
+
+        </div><!-- col-md-6 -->
+      </div>
+      <!-- /.services -->
+    </div>
+    <!-- /.container -->
+    <section class="ss-style-bottom"></section>
+  </div><!-- #reservation -->
+
+
+
+  <div id="chefs" class="parallax pricing">
+    <div class="bg-overlay"></div>
+    <div class="container inner">
+
+      <h2 class="section-title text-center">TastyBox Chefs</h2>
+      <p class="lead main text-center">The most amazing TastyBox Talent you'll find below.</p>
+
+      <div class="row text-center chefs">
+        <div class="col-sm-4">
+          <div class="col-wrapper">
+            <div class="icon-wrapper">
+              <img
+                src="https://40.media.tumblr.com/88bd9055c0827ae9d3184a37ccf095b1/tumblr_ntegw5xpqN1ud7rr3o1_400.jpg">
+            </div>
+            <h3>Coming Soon</h3>
+            <p>More Info Coming Soon.</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="col-wrapper">
+            <div class="icon-wrapper">
+              <img
+                src="https://40.media.tumblr.com/88bd9055c0827ae9d3184a37ccf095b1/tumblr_ntegw5xpqN1ud7rr3o1_400.jpg">
+            </div>
+            <h3>Coming Soon</h3>
+            <p>More Info Coming Soon.</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="col-wrapper">
+            <div class="icon-wrapper">
+              <img
+                src="https://40.media.tumblr.com/88bd9055c0827ae9d3184a37ccf095b1/tumblr_ntegw5xpqN1ud7rr3o1_400.jpg">
+            </div>
+            <h3>Coming Soon</h3>
+            <p>More Info Coming Soon.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.container -->
+  </div><!-- /#chefs -->
+
+
+  <footer id="footer" class="dark-wrapper">
+    <section class="ss-style-top"></section>
+    <div class="container inner">
+      <div class="row">
+        <div class="col-sm-6">
+          &copy; Copyright TastyBox 2013
+
+        </div>
+        <div class="col-sm-6">
+          <div class="social-bar">
+            <a href="#" class="fa fa-instagram tooltipped" title="instagram"></a>
+            <a href="#" class="fa fa-youtube-square tooltipped" title="youtube"></a>
+            <a href="#" class="fa fa-facebook-square tooltipped" title="facebook"></a>
+            <a href="#" class="fa fa-twitter-square tooltipped" title="twitter"></a>
+            <a href="#" class="fa fa-google-plus-square tooltipped" title="google+"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+  </footer>
+  <!-- partial -->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery.actual/1.0.17/jquery.actual.min.js'></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.1/jquery.scrollTo.min.js'></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js'></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+  <script src="scripts/script.js"></script>
+
+</body>
+
 </html>
