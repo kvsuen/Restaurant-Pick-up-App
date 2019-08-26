@@ -11,38 +11,7 @@ const app           = express();
 const morgan        = require('morgan');
 const cookieSession = require('cookie-session');
 
-// PG database client/connection setup
-const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
-const db = new Pool(dbParams);
-db.connect();
-
-// TEMPORARY DATABASE OBJECT STRUCTURE
-const users = [
-  {
-    id: 0,
-    name: "test",
-    email: "test@test.com",
-    password: "test",
-    phoneNumber: 1231231234,
-    creditCardNumber: 1234123412341234,
-    cardExpiryDate: 1120,
-    cardSecurityCode: 123
-  }
-];
-
-const userOrder = [
-  {
-    menuItem: "fries",
-    quantity: 3,
-    purchasePrice: 500
-  },
-  {
-    menuItem: "krab",
-    quantity: 3,
-    purchasePrice: 50000
-  }
-];
+const db = require('./database');
 
 // Cookie session setup
 app.use(cookieSession({
@@ -67,7 +36,7 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
-const usersRoutes = require("./routes/users");
+// const usersRoutes = require("./routes/users");
 const loginRoutes = require("./routes/login");
 const logoutRoutes = require("./routes/logout");
 const registerRoutes = require("./routes/register");
@@ -75,7 +44,7 @@ const ordersRoutes = require("./routes/orders");
 const checkoutRoutes = require("./routes/checkout");
 
 // Mount all resource routes
-app.use("/api/users", usersRoutes(db));
+// app.use("/api/users", usersRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/logout", logoutRoutes(db));
 app.use("/register", registerRoutes(db));
@@ -92,4 +61,3 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`KAK listening on port ${PORT}`);
 });
-

@@ -1,17 +1,23 @@
+// PG database client/connection setup
+const { Pool } = require('pg');
+const dbParams = require('./lib/db.js');
+const pool = new Pool(dbParams);
+pool.connect();
 
 // Login: Checks the database for the user's email and password to Login
 
 const userLogin = function(email, password) {
   return pool.query(`
-  SELECT email, password
+  SELECT id
   FROM users
   WHERE email = $1 AND password = $2
   `, [email, password])
-  .then(res => res.rows[0])
-  .catch(err => console.error(null, err.stack));
-}
+    .then(res => res.rows[0])
+    .catch(err => console.error(null, err.stack));
+};
 
-module.exports = userLogin
+exports.userLogin = userLogin;
+
 
 // Register: Adds a user to the database
 
@@ -31,7 +37,7 @@ const userRegister = function(user) {
   .catch(err => console.error(null, err.stack));
 }
 
-module.exports = userRegister
+exports.userRegister = userRegister;
 
 // Menu: Lists whole menu (items, price, picture, description)
 
@@ -50,7 +56,7 @@ const getMenu = function(type = null) {
     .catch(err => console.error(null, err.stack));
  };
 
-module.exports = getMenu
+exports.getMenu = getMenu;
 
 // Order Timestamp: Creates a timestamp of a user's order
 
@@ -152,7 +158,7 @@ const totalPurchasePrice = function() {
   .catch(err => console.error(null, err.stack));
 }
 
-module.exports = totalPurchasePrice
+exports.totalPurchasePrice = totalPurchasePrice;
 
 // Total Price: Gets the total price for an order (PRESENT)
 
@@ -164,7 +170,7 @@ const totalPrice = function() {
   `)
 }
 
-module.exports = totalPrice
+exports.totalPrice = totalPrice;
 
 // Order History: Shows order history (Menu Item, Purchase Price, Quantity, Total Price, Timestamp)
 
@@ -186,4 +192,4 @@ const userOrderHistory = function(id) {
   .catch(err => console.error(null, err.stack));
 }
 
-module.exports = userOrderHistory
+exports.userOrderHistory = userOrderHistory;

@@ -10,8 +10,17 @@ module.exports = (db) => {
     // TODO
     // Do error checking (helper func)
     // Check for empty form fields
-    // Call a function to make an INSERT query to database
-    res.redirect("/");
+    const user = req.body;
+    db.userRegister(user)
+      .then(user => {
+        if (!user) {
+          res.send({error: "error"});
+          return;
+        } else {
+          req.session.userId = user.id;
+          res.redirect("/");
+        }
+      }).catch(err => console.error(null, err.stack));
   });
 
   return router;
