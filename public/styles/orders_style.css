@@ -132,6 +132,7 @@ img {
 #menu header a {
   color: rgb(220, 53, 69);
   font-family: 'Cardo', serif;
+  font-variant: small-caps;
 }
 
 #menu section {
@@ -157,6 +158,23 @@ img {
   padding-right: 10px;
 }
 
+#menu div.container {
+  border-top: 1px solid black;
+  justify-content: space-between;
+  padding-right: 25px;
+  padding-top: 0.75em;
+  align-items: center;
+}
+
+#menu div.container p {
+  margin: 0;
+}
+
+#menu div.container h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
 #menu footer {
   justify-content: flex-end;
   position: absolute;
@@ -169,6 +187,7 @@ img {
   z-index: 2;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
   padding: 0 20px;
+  font-variant: small-caps;
 }
 /* */
 
