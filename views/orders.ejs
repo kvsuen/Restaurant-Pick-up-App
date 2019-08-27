@@ -6,22 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orders</title>
 
+  <!-- CSS Resets -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <!-- Bootstrap CSS -->
+
+  <!-- External CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Alex+Brush|Cardo|Great+Vibes'>
+  <!-- Internal CSS -->
   <link rel="stylesheet" href="styles/orders_style.css">
 
+  <!-- External JS -->
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+  <!-- Interal JS-->
+  <script type="text/javascript" src="/scripts/orders.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
 <body>
   <main>
-    <p class="cart-button">
-      <a class="js-toggle-cart" href="#" title="View cart">
+    <p>
+      <a class="toggle-cart" href="#" title="View cart">
         View cart
       </a>
     </p>
@@ -30,10 +39,10 @@
     <div class="container">
       <div class="row" id="bg">
       </div>
-      <!--begin menu-->
+      <!-- menu-->
       <div class="row">
         <div class="col-md-6">
-          <!--left-hand column-->
+          <!-- left-hand column-->
           <div>
             <table class="table">
               <tbody>
@@ -44,13 +53,13 @@
                 </tr>
                 <% for (const item of mains) { %>
                 <tr>
-                  <td>
+                  <td class="menu-text">
                     <span class="dish-name"><%=item.item %></span>
                     </br>
                     <span class="dish-desc"><%=item.description %></span>
                   <td class="price"><%=(item.price / 100) %></td>
                   <td class="add">
-                    <input class="quantity" type="number" name="quantity" value="0" max="100" min="0" disabled>
+                    <input class="quantity" type="number" name="menu_item_<%=(item.id)%>" value="0" max="100" min="0" disabled>
                   </td>
                 </tr>
                 <% } %>
@@ -60,7 +69,7 @@
         </div>
 
         <div class="col-md-6">
-          <!--right-hand column-->
+          <!-- right-hand column-->
           <div>
             <table class="table">
               <tbody>
@@ -71,13 +80,13 @@
                 </tr>
                 <% for (const item of appetizers) { %>
                 <tr>
-                  <td>
+                  <td class="menu-text">
                     <span class="dish-name"><%=item.item %></span>
                     </br>
                     <span class="dish-desc"><%=item.description %></span>
                   <td class="price"><%=(item.price / 100) %></td>
                   <td class="add">
-                    <input class="quantity" type="number" name="quantity" value="0" max="100" min="0" disabled>
+                    <input class="quantity" type="number" name="menu_item_<%=(item.id)%>" value="0" max="100" min="0" disabled>
                   </td>
                 </tr>
                 <% } %>
@@ -89,13 +98,13 @@
                 </tr>
                 <% for (const item of drinks) { %>
                 <tr>
-                  <td>
+                  <td class="menu-text">
                     <span class="dish-name"><%=item.item %></span>
                     </br>
                     <span class="dish-desc"><%=item.description %></span>
                   <td class="price"><%=(item.price / 100) %></td>
                   <td class="add">
-                    <input class="quantity" type="number" name="quantity" value="0" max="100" min="0" disabled>
+                    <input class="quantity" type="number" name="menu_item_<%=(item.id)%>" value="0" max="100" min="0" disabled>
                   </td>
                 </tr>
                 <% } %>
@@ -107,14 +116,13 @@
                 </tr>
                 <% for (const item of desserts) { %>
                 <tr>
-                  <td>
+                  <td class="menu-text">
                     <span class="dish-name"><%=item.item %></span>
                     </br>
                     <span class="dish-desc"><%=item.description %></span>
                   <td class="price"><%=(item.price / 100) %></td>
                   <td class="add">
-                    <input class="quantity" type="number" name="quantity" value="0" max="100" min="0" disabled>
-
+                    <input class="quantity" type="number" name="menu_item_<%=(item.id)%>" value="0" max="100" min="0" disabled>
                   </td>
                 </tr>
                 <% } %>
@@ -125,27 +133,16 @@
       </div>
     </div>
 
+    <!-- Side bar -->
     <aside>
       <div id="menu">
         <header class="container">
           <h2>Your Order</h2>
-          <a class="button button--light js-toggle-cart" href="#" title="Close cart">
+          <a class="button button--light toggle-cart" href="#" title="Close cart">
             Close cart
           </a>
         </header>
-        <section>
-          <article class="container">
-            <p>1</p>
-            <h3>Item name</h3>
-            <p>$200.00</p>
-            <span><img src="/images/x-mark.png" alt="Remove from order" title="Remove from order"></span>
-          </article>
-          <article class="container">
-            <p>1</p>
-            <h3>Item name</h3>
-            <p>$200.00</p>
-            <span><img src="/images/x-mark.png" alt="Remove from order" title="Remove from order"></span>
-          </article>
+        <section id="order-container">
           <div class="container">
             <h3>Order Total</h3>
             <p>$400.00</p>
@@ -160,94 +157,7 @@
 
 
 
-    <div class="lightbox js-toggle-cart"></div>
+    <div class="lightbox toggle-cart"></div>
   </main>
-  <!-- partial -->
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-
-  <script>
-    $(function () {
-
-      $("tr .add").prepend('<button type="button" class="plus increment">+</button>');
-      $("tr .add").append('<button type="button" class="minus increment">-</button>');
-      $("tr .add").append('<span class="reset"><img src="/images/x-mark.png" alt="Remove from order" title="Remove from order"></span>');
-
-      $(".increment").on("click", function () {
-
-        var $button = $(this);
-        var oldValue = $button.parent().find("input").val();
-
-        if ($button.text() == "+") {
-          var newVal = parseFloat(oldValue) + 1;
-        } else {
-          // Don't allow decrementing below zero
-          if (oldValue > 0) {
-            var newVal = parseFloat(oldValue) - 1;
-          } else {
-            newVal = 0;
-          }
-        }
-
-        if (newVal !== 0) {
-          $(this).siblings('input').css({ "color": "rgb(225, 30, 30)" });
-          $(this).siblings('input').css({ "font-weight": "bold" });
-          $(this).siblings('span').css({ "visibility": "visible" })
-
-        } else {
-          $(this).siblings('input').css({ "color": "black" });
-          $(this).siblings('input').css({ "font-weight": "normal" });
-          $(this).siblings('span').css({ "visibility": "hidden" });
-        }
-
-        $button.parent().find("input").val(newVal);
-      });
-
-      $(".reset").on("click", function () {
-
-        var $button = $(this);
-        var oldValue = $button.parent().find("input").val();
-
-        $(this).siblings('input').css({ "color": "black" });
-        $(this).siblings('input').css({ "font-weight": "normal" });
-        $(this).css({ "visibility": "hidden" });
-
-        $button.parent().find("input").val("0");
-      });
-
-    });
-
-    // ################ //
-    var cartOpen = false;
-    var numberOfProducts = 0;
-
-    function toggleMenu() {
-      $("#menu").toggleClass("open");
-    }
-
-    $('body').on('click', '.js-toggle-cart', toggleCart);
-
-    function toggleCart(event) {
-      event.preventDefault();
-      if (cartOpen) {
-        toggleMenu();
-        closeCart();
-        return;
-      }
-      toggleMenu();
-      openCart();
-    }
-
-    function openCart() {
-      cartOpen = true;
-      $('body').addClass('open');
-    }
-
-    function closeCart() {
-      cartOpen = false;
-      $('body').removeClass('open');
-    }
-  </script>
 
 </body>
