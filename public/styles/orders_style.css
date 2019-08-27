@@ -9,7 +9,7 @@ body {
 }
 
 #bg {
-  background-image: url('/images/jay-wennington-N_Y88TWmGwA-unsplash-min.jpg');
+  background-image: url('/images/ting-tian-_79ZJS8pV70-unsplash2.jpg');
   background-repeat: no-repeat;
   background-position: 50% 0;
   -ms-background-size: cover;
@@ -21,20 +21,21 @@ body {
 #logo {
   max-width: 100%;
 }
-.secTitle {
+
+.sec-title {
   font-family: 'Alex Brush', cursive;
   font-size: 3em;
   font-weight: 500;
   color: #321602;
 }
 
-.dishName {
+.dish-name {
   font-weight: 600;
   font-variant: small-caps;
   font-size: 1.1em;
 }
 
-.dishDesc {
+.dish-desc {
   font-size: .9em;
 }
 
@@ -45,21 +46,21 @@ body {
 .add {
   text-align: right;
   display: flex;
+  flex-wrap: wrap;
 }
 
 /* plus minus quantity feature */
 
-.table td {
-  padding-left: 30px;
+.table td.price {
+  padding-right: 30px;
 }
 
-.add input::-webkit-inner-spin-button,
-.add input::-webkit-outer-spin-button {
+.add input::-webkit-inner-spin-button, .add input::-webkit-outer-spin-button {
   -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
-.add input {
+.add .quantity {
   width: 2rem;
   background: none;
   outline: none;
@@ -67,8 +68,124 @@ body {
   text-align: center;
 }
 
-.add a {
+.add .increment {
   color: black;
-  text-decoration: none;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
 
+.add span {
+  text-align: center;
+  width: 3em;
+  visibility: hidden;
+}
+
+img {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+/* Side bar */
+
+#menu {
+  position: fixed;
+  background: #f4efeb;
+  width: 400px;
+  max-width: 90%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transform: translate(500px, 0);
+  transition: transform 250ms ease-in-out;
+  z-index: 20;
+}
+
+#menu.open {
+  transform: translate(0, 0);
+}
+
+#menu .container {
+  display: flex;
+}
+
+#menu header {
+  font-family: 'Alex Brush', cursive;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  height: 5em;
+  padding: 0 20px;
+}
+
+#menu header h2 {
+  margin: 0;
+}
+
+#menu header a {
+  color: rgb(220, 53, 69);
+  font-family: 'Cardo', serif;
+}
+
+#menu section {
+  margin: 10px 20px;
+}
+
+#menu article {
+  align-items: center;
+  font-variant: small-caps;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+}
+
+#menu article h3 {
+  margin: 0;
+  flex-grow: 1;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#menu article p {
+  margin: 0;
+  padding-right: 10px;
+}
+
+#menu footer {
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  background: white;
+  color: white;
+  height: 5em;
+  align-items: center;
+  background: white;
+  z-index: 2;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+  padding: 0 20px;
+}
+/* */
+
+.lightbox {
+  position: fixed;
+  background: black;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out, width 0ms ease-in-out 250ms;
+}
+
+body.open .lightbox {
+  width: 100%;
+  opacity: 0.8;
+  transition: opacity 250ms ease-in-out, width 0ms ease-in-out;
 }
