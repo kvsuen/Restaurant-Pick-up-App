@@ -1,0 +1,219 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f4efeb;
+  font-family: 'Cardo', serif;
+}
+
+#bg {
+  background-image: url('/images/ting-tian-_79ZJS8pV70-unsplash2.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  -ms-background-size: cover;
+  background-size: cover;
+  height: 250px;
+  max-width: 1152px;
+}
+
+#logo {
+  max-width: 100%;
+}
+
+.sec-title {
+  font-family: 'Alex Brush', cursive;
+  font-size: 3em;
+  font-weight: 500;
+  color: #321602;
+}
+
+.dish-name {
+  font-weight: 600;
+  font-variant: small-caps;
+  font-size: 1.1em;
+}
+
+.dish-desc {
+  font-size: .9em;
+}
+
+.price {
+  text-align: left;
+}
+
+.add {
+  text-align: right;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* plus minus quantity feature */
+
+.table td.price {
+  padding-right: 30px;
+}
+
+.add input::-webkit-inner-spin-button, .add input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.add .quantity {
+  width: 2rem;
+  background: none;
+  outline: none;
+  border: 0;
+  text-align: center;
+}
+
+.add .increment {
+  color: black;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.add span {
+  text-align: center;
+  width: 3em;
+  visibility: hidden;
+}
+
+img {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+/* Side bar */
+
+#menu {
+  position: fixed;
+  background: #f4efeb;
+  width: 400px;
+  max-width: 90%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transform: translate(500px, 0);
+  transition: transform 250ms ease-in-out;
+  z-index: 20;
+}
+
+#menu.open {
+  transform: translate(0, 0);
+}
+
+#menu .container {
+  display: flex;
+}
+
+#menu header {
+  font-family: 'Alex Brush', cursive;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  height: 5em;
+  padding: 0 20px;
+}
+
+#menu header h2 {
+  margin: 0;
+}
+
+#menu header a {
+  color: rgb(220, 53, 69);
+  font-family: 'Cardo', serif;
+  font-variant: small-caps;
+}
+#menu header a:hover {
+  text-decoration: none;
+}
+
+#menu section#order-container {
+  margin: 10px 20px 0px 20px;
+}
+
+#menu article {
+  align-items: center;
+  font-variant: small-caps;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+}
+
+#menu article h3 {
+  margin: 0;
+  flex-grow: 1;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#menu article p {
+  margin: 0;
+  padding-right: 10px;
+}
+
+#menu section.total {
+  margin: 0px 20px;
+}
+
+#menu div.container {
+  border-top: 1px solid black;
+  justify-content: space-between;
+  padding-right: 25px;
+  padding-top: 0.75em;
+  align-items: center;
+}
+
+#menu .total p {
+  margin: 0;
+  font-weight: bold;
+}
+
+#menu .total h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#menu footer {
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  background: white;
+  color: white;
+  height: 5em;
+  align-items: center;
+  background: white;
+  z-index: 2;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+  padding: 0 20px;
+  font-variant: small-caps;
+}
+/* */
+
+.lightbox {
+  position: fixed;
+  background: black;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out, width 0ms ease-in-out 250ms;
+}
+
+body.open .lightbox {
+  width: 100%;
+  opacity: 0.8;
+  transition: opacity 250ms ease-in-out, width 0ms ease-in-out;
+}
