@@ -76,17 +76,34 @@ section::before,section::after {
 /* ==========================================================================
     02. Header
 ========================================================================== */
-#header {
-    background-image:url(https://41.media.tumblr.com/82d8e8c4970c495ebba2ee285bb78a68/tumblr_nteg9aNhrp1ud7rr3o1_1280.jpg);
-    -webkit-background-size:/*@@prefixmycss->No equivalent*/;
-    -moz-background-size:cover;
-    -o-background-size:/*@@prefixmycss->No equivalent*/;
+/* #header {
+    width: 100%;
+    height: 50px;
+    border-left: none;
+    border-right: none;
     background-size:cover;
     background-position:center center;
-    background-attachment:fixed;
-    background-repeat:no-repeat;
     position:relative;
+} */
+#header-container {
+  width: 100%;
+  height: 900px;
+  border-left: none;
+  border-right: none;
+  position: relative;
 }
+.video-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+video {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.78;
+  width: 100%;
+}
+
 .bg-overlay {
     position:absolute;
     top:0;
@@ -126,7 +143,7 @@ section::before,section::after {
     text-align:center;
     width:100%;
     position:absolute;
-    bottom:30px;
+    bottom:10px;
 }
 #header .bottom a {
     font-size:36px;
@@ -139,12 +156,16 @@ section::before,section::after {
 }
 
 
+
 /* ==========================================================================
     03. Navigation
 ========================================================================== */
 #menu {
     background:rgb(29, 28, 28);
     margin-bottom:0;
+    min-height:10px;
+    max-height:100px;
+    font-size:25px;
 }
 .navbar-brand h2 {
     margin-top:0;
@@ -157,7 +178,8 @@ section::before,section::after {
 }
 /*logo*/
 .navbar #logo {
-  margin-top: -15px;
+  margin-top: -45px;
+  width: 250px;
   background:rgba(33,45,57,0.0);
   background-position: bottom;
   -webkit-transition:all 0.4s;
@@ -168,12 +190,12 @@ section::before,section::after {
 }
 
 .navbar #logo:hover {
-  background:#ed0121;
+  background:rgb(29, 28, 28);
   -webkit-transition:all 0.4s;
     -moz-transition:all 0.4s;
     -o-transition:all 0.4s;
     transition:all 0.4s;
-
+    padding-top: 15px;
 }
 .navbar-inverse .navbar-nav>li>a {
     -webkit-transition:all 0.4s;
@@ -182,9 +204,11 @@ section::before,section::after {
     transition:all 0.4s;
     color:white;
     font-weight:bold;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .navbar-inverse .navbar-nav>li>a:hover,.navbar-inverse .navbar-nav>.active>a {
-    background:#ed0121;
+    background:#bd5109;
     color:white;
     text-shadow:none;
 }
@@ -518,16 +542,17 @@ section::before,section::after {
         width:100%;
         text-align:center;
         margin-left:9px;
+        margin-top:-140px;
     }
     .navbar-nav>li {
         display:inline-block;
         float:none;
     }
     #logo {
-        position:absolute;
+        position:relative;
         display:block !important;
-        width:110px;
-        left:50%;
+        width:150px;
+        left:44%;
         margin-left:-55px;
         background:black;
         -webkit-border-radius:0 0 100% 100%;
