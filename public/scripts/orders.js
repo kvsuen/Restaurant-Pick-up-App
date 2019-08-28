@@ -81,19 +81,40 @@ const renderCartItems = function() {
       window.localStorage.removeItem(id);
       $(`article.${id}`).remove();
       renderCartTotal();
+
+      // updating menu side
+      $(`input.quantity[name=${item.id}]`).attr("value", 0);
+      $(`input.quantity[name=${item.id}]`).css({ "color": "black" });
+      $(`input.quantity[name=${item.id}]`).css({ "font-weight": "normal" });
+      $(`input.quantity[name=${item.id}]`).siblings("span").css({ "visibility": "hidden" });
     });
   }
 };
+
+const renderInputValues = function() {
+  const numKeys = getNumOfItems();
+
+  for (let index = 0; index < numKeys; index++) {
+    let item = JSON.parse(window.localStorage.getItem(window.localStorage.key(index)));
+
+    $(`input.quantity[name=${item.id}]`).attr("value", item.quantity);
+    $(`input.quantity[name=${item.id}]`).css({ "color": "rgb(225, 30, 30)" });
+    $(`input.quantity[name=${item.id}]`).css({ "font-weight": "bold" });
+    $(`input.quantity[name=${item.id}]`).siblings("span").css({ "visibility": "visible" });
+  }
+}
 
 $(document).ready(function() {
 
   // #### NEED TO GIVE IT AN CLASS ID USING EJS #### //
   $("tr .add").prepend('<button type="button" class="plus increment">+</button>');
-  $("tr .add").append(`<input class="quantity" type="number" name="quantity" value="0" max="100" min="0" disabled></input>`)
+  // $("tr .add").append(`<input class="quantity" type="number" name="quantity" value="0" max="100" min="0" disabled></input>`)
   $("tr .add").append('<button type="button" class="minus increment">-</button>');
   $("tr .add").append('<span class="reset"><img src="/images/x-mark.png" alt="Remove from order" title="Remove from order"></span>');
 
   // console.log($("tr .add").children("input").attr('value', 1));
+
+  renderInputValues();
 
   // Implement onclick for the + - buttons
   $(".increment").on("click", function() {
