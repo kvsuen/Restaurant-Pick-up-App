@@ -134,9 +134,12 @@ img {
   font-family: 'Cardo', serif;
   font-variant: small-caps;
 }
+#menu header a:hover {
+  text-decoration: none;
+}
 
-#menu section {
-  margin: 10px 20px;
+#menu section#order-container {
+  margin: 10px 20px 0px 20px;
 }
 
 #menu article {
@@ -158,6 +161,10 @@ img {
   padding-right: 10px;
 }
 
+#menu section.total {
+  margin: 0px 20px;
+}
+
 #menu div.container {
   border-top: 1px solid black;
   justify-content: space-between;
@@ -166,13 +173,15 @@ img {
   align-items: center;
 }
 
-#menu div.container p {
+#menu .total p {
   margin: 0;
+  font-weight: bold;
 }
 
-#menu div.container h3 {
+#menu .total h3 {
   margin: 0;
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 #menu footer {

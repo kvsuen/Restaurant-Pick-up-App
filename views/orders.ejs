@@ -53,13 +53,13 @@
                 </tr>
                 <% for (const item of mains) { %>
                 <tr>
-                  <td class="menu-text">
+                  <td class="menu-text menu-item-<%=(item.id)%>">
                     <span class="dish-name"><%=item.item %></span>
                     </br>
                     <span class="dish-desc"><%=item.description %></span>
                   <td class="price"><%=(item.price / 100) %></td>
                   <td class="add">
-                    <input class="quantity" type="number" name="menu_item_<%=(item.id)%>" value="0" max="100" min="0" disabled>
+                    <!-- jquery to insert menu items here -->
                   </td>
                 </tr>
                 <% } %>
@@ -80,13 +80,13 @@
                 </tr>
                 <% for (const item of appetizers) { %>
                 <tr>
-                  <td class="menu-text">
+                  <td class="menu-text menu-item-<%=(item.id)%>">
                     <span class="dish-name"><%=item.item %></span>
                     </br>
                     <span class="dish-desc"><%=item.description %></span>
                   <td class="price"><%=(item.price / 100) %></td>
                   <td class="add">
-                    <input class="quantity" type="number" name="menu_item_<%=(item.id)%>" value="0" max="100" min="0" disabled>
+                    <!-- jquery to insert menu items here -->
                   </td>
                 </tr>
                 <% } %>
@@ -98,13 +98,13 @@
                 </tr>
                 <% for (const item of drinks) { %>
                 <tr>
-                  <td class="menu-text">
+                  <td class="menu-text menu-item-<%=(item.id)%>">
                     <span class="dish-name"><%=item.item %></span>
                     </br>
                     <span class="dish-desc"><%=item.description %></span>
                   <td class="price"><%=(item.price / 100) %></td>
                   <td class="add">
-                    <input class="quantity" type="number" name="menu_item_<%=(item.id)%>" value="0" max="100" min="0" disabled>
+                    <!-- jquery to insert menu items here -->
                   </td>
                 </tr>
                 <% } %>
@@ -116,13 +116,13 @@
                 </tr>
                 <% for (const item of desserts) { %>
                 <tr>
-                  <td class="menu-text">
+                  <td class="menu-text menu-item-<%=(item.id)%>">
                     <span class="dish-name"><%=item.item %></span>
                     </br>
                     <span class="dish-desc"><%=item.description %></span>
                   <td class="price"><%=(item.price / 100) %></td>
                   <td class="add">
-                    <input class="quantity" type="number" name="menu_item_<%=(item.id)%>" value="0" max="100" min="0" disabled>
+                    <!-- jquery to insert menu items here -->
                   </td>
                 </tr>
                 <% } %>
@@ -143,6 +143,9 @@
           </a>
         </header>
         <section id="order-container">
+          <!-- jQuery to insert cart items here -->
+        </section>
+        <section class="total">
           <div class="container">
             <h3>Order Total</h3>
             <p>$400.00</p>
