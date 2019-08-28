@@ -1,6 +1,5 @@
 const generateItemObject = function($input, quantity) {
-  // slice at 20 since id starts at index 20 from 'menu-text menu_item_id'
-  const id = Number($input.parent().siblings().attr('class').slice(20));
+  const id = Number($input.siblings('input').attr('name'));
   const name = $input.parent().siblings('.menu-text').find('.dish-name').text();
   const price = $input.parent().siblings('.price').text();
 
@@ -21,13 +20,13 @@ const incrementItemLocalStorage = function($input, quantity) {
 };
 
 const removeItemFromLocalStorage = function($input) {
-  const id = Number($input.parent().siblings().attr('class').slice(20));
+  const id = Number($input.siblings('input').attr('name'));
 
   window.localStorage.removeItem(id);
 };
 
 const removeItemFromCart = function($input) {
-  const id = Number($input.parent().siblings().attr('class').slice(20));
+  const id = Number($input.siblings('input').attr('name'));
 
   $(`article.${id}`).remove();
 };
@@ -83,10 +82,11 @@ const renderCartItems = function() {
       renderCartTotal();
 
       // updating menu side
-      $(`input.quantity[name=${item.id}]`).attr("value", 0);
-      $(`input.quantity[name=${item.id}]`).css({ "color": "black" });
-      $(`input.quantity[name=${item.id}]`).css({ "font-weight": "normal" });
-      $(`input.quantity[name=${item.id}]`).siblings("span").css({ "visibility": "hidden" });
+      $(`input.quantity[name=${id}]`).attr("value", 0);
+      $(`input.quantity[name=${id}]`).val(0);
+      $(`input.quantity[name=${id}]`).css({ "color": "black" });
+      $(`input.quantity[name=${id}]`).css({ "font-weight": "normal" });
+      $(`input.quantity[name=${id}]`).siblings("span").css({ "visibility": "hidden" });
     });
   }
 };
@@ -98,6 +98,7 @@ const renderInputValues = function() {
     let item = JSON.parse(window.localStorage.getItem(window.localStorage.key(index)));
 
     $(`input.quantity[name=${item.id}]`).attr("value", item.quantity);
+    $(`input.quantity[name=${item.id}]`).val(item.quantity);
     $(`input.quantity[name=${item.id}]`).css({ "color": "rgb(225, 30, 30)" });
     $(`input.quantity[name=${item.id}]`).css({ "font-weight": "bold" });
     $(`input.quantity[name=${item.id}]`).siblings("span").css({ "visibility": "visible" });
@@ -106,13 +107,10 @@ const renderInputValues = function() {
 
 $(document).ready(function() {
 
-  // #### NEED TO GIVE IT AN CLASS ID USING EJS #### //
+  // Append database menu_items to page //
   $("tr .add").prepend('<button type="button" class="plus increment">+</button>');
-  // $("tr .add").append(`<input class="quantity" type="number" name="quantity" value="0" max="100" min="0" disabled></input>`)
   $("tr .add").append('<button type="button" class="minus increment">-</button>');
   $("tr .add").append('<span class="reset"><img src="/images/x-mark.png" alt="Remove from order" title="Remove from order"></span>');
-
-  // console.log($("tr .add").children("input").attr('value', 1));
 
   renderInputValues();
 
