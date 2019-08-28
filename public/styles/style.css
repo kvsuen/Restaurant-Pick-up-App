@@ -87,7 +87,7 @@ section::before,section::after {
 } */
 #header-container {
   width: 100%;
-  height: 900px;
+  height: 850px;
   border-left: none;
   border-right: none;
   position: relative;
@@ -96,6 +96,7 @@ section::before,section::after {
   position: absolute;
   height: 100%;
   width: 100%;
+  bottom:7%;
 }
 video {
   position: absolute;
@@ -195,7 +196,7 @@ video {
     -moz-transition:all 0.4s;
     -o-transition:all 0.4s;
     transition:all 0.4s;
-    padding-top: 15px;
+
 }
 .navbar-inverse .navbar-nav>li>a {
     -webkit-transition:all 0.4s;
@@ -541,7 +542,7 @@ video {
         float:none !important;
         width:100%;
         text-align:center;
-        margin-left:9px;
+        margin-left:-10px;
         margin-top:-140px;
     }
     .navbar-nav>li {
@@ -551,14 +552,13 @@ video {
     #logo {
         position:relative;
         display:block !important;
-        width:150px;
         left:44%;
         margin-left:-55px;
         background:black;
         -webkit-border-radius:0 0 100% 100%;
         -moz-border-radius:0 0 100% 100%;
         border-radius:0 0 100% 100%;
-        padding: 12px;
+        padding: 2px;
     }
 }
 
