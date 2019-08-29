@@ -157,6 +157,49 @@ video {
 }
 
 
+/* Login Register */
+
+#navbar div.login-register {
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+#navbar div.login-register a {
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+#navbar div.login-register a:hover {
+  background: #bd5109;
+  color: white;
+  text-shadow: none;
+  text-decoration: none;
+}
+
+#navbar div.login-register a:visited, #navbar div.login-register a:focus  {
+  text-decoration: none;
+}
+
+div.modal-dialog {
+  width: 450px;
+}
+
+div.modal-header {
+  text-align: center;
+}
+
+div.modal-body {
+  text-align: center;
+}
+
+div.modal-body input {
+  width: 350px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
+
 
 /* ==========================================================================
     03. Navigation
