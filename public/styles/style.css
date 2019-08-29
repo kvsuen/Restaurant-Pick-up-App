@@ -182,6 +182,11 @@ video {
   text-decoration: none;
 }
 
+#navbar div.login-register span {
+  color: white;
+  font-size: 2rem;
+}
+
 div.modal-dialog {
   width: 450px;
 }

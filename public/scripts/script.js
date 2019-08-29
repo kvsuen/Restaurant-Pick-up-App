@@ -18,7 +18,7 @@
 		}
 		;
 	}
-	// smartresize 
+	// smartresize
 	jQuery.fn[sr] = function(fn) {
 		return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr);
 	}
@@ -51,13 +51,13 @@ $(document).ready(function() {
 		setHomeBannerHeight();
 		centerHomeBannerText();
 	});
-	
+
 	function scroll() {
 		if ($(window).scrollTop() == 0 ) {
 			//$('.nav > li').removeClass('active');
 			console.log($(window).scrollTop());
 		} else {
-			
+
 		}
 	}
 	document.onscroll = scroll;
@@ -94,5 +94,15 @@ $(document).ready(function() {
 		);
 	});
 
+  $(".logout").on("click", function(event) {
+    event.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '/logout',
+    })
+      .success(function() {
+        location.href = "/";
+      })
+  });
 
 });

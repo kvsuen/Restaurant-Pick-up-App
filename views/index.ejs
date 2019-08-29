@@ -60,11 +60,17 @@
           <li><a href="#facts">Facts</a></li>
           <li><a href="#food-menu">Food Menu</a></li>
           <li><a href="#location">Location</a></li>
-          <div class="login-register">
-            <a href="#login" data-toggle="modal" data-target="#modal-login">Login</a>
-            <a href="/register">Register</a>
-          </div>
-
+          <% if (user) { %>
+            <div class="login-register">
+              <span>Logged in as <%= user[0].name %>.</span>
+              <a class="logout" href="#">Logout</a>
+            </div>
+          <% } else { %>
+            <div class="login-register">
+              <a href="#login" data-toggle="modal" data-target="#modal-login">Login</a>
+              <a href="/register">Register</a>
+            </div>
+          <% } %>
 
 
           <!--fix for scroll spy active menu element-->
