@@ -92,6 +92,35 @@ section::before,section::after {
   border-right: none;
   position: relative;
 }
+
+#header-container .vidtext {
+  z-index: 20;
+  position: absolute;
+  bottom: 350px;
+  left: 750px;
+}
+
+#header-container .vidtext h1 {
+  font-weight: 100;
+  font-family: 'Lobster', cursive;
+  font-size: 60px;
+  text-align: center;
+  right: 50px;
+  color: white;
+  text-shadow:
+      3px 3px 0 black,
+    -1px -1px 0 black,
+     1px -1px 0 black,
+     -1px 1px 0 black,
+      1px 1px 0 black;
+}
+
+#header-container .vidtext a {
+top: 200px;
+left: 110px;
+}
+
+
 .video-container {
   position: absolute;
   height: 100%;
@@ -104,6 +133,59 @@ video {
   opacity: 0.78;
   width: 100%;
 }
+
+.cta {
+  position: relative;
+  margin: auto;
+  padding: 19px 22px;
+  transition: all 0.2s ease;
+}
+.cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 28px;
+  background: #F0A830;
+  width: 56px;
+  height: 56px;
+  transition: all 0.3s ease;
+}
+.cta span {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  line-height: 15px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #111;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+.cta:hover:before {
+  width: 100%;
+  background: #f34f32;
+}
+.cta:hover svg {
+  transform: translateX(0);
+}
+.cta:active {
+  transform: scale(0.96);
+}
+
 
 .bg-overlay {
     position:absolute;
