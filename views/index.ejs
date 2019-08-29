@@ -162,169 +162,85 @@
       <p class="lead main text-center"></p>
 
       <div class="row">
-        <div class="col-sm-3 col-md-3">
-          <div class="menu-images "><img
-              src="https://41.media.tumblr.com/bfd11a1b6b6ffab454a4bc067f34627b/tumblr_ntebgxU6941ud7rr3o1_400.jpg"
-              alt="LambBancon"></div>
-          <div class="menu-titles">
-            <h1 class="">LamBacon</h1>
-          </div>
-          <div class="menu-items ">
-            <ul>
-              <li>Juicy...</li>
-              <li>Tasty...</li>
-              <li>Lamb...</li>
-              <li>Bacon...</li>
-              <li>Fresh...</li>
-              <li>Lettuce...</li>
-              <li>Tomatos...</li>
-              <li>Mint-Cilantro-Garlic Sauce&copy;</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-3 col-md-3">
-          <div class="menu-images "><img
-              src="https://40.media.tumblr.com/c468fcb7d4f4362b0de01e7e374bcfd5/tumblr_nted40Ix4z1ud7rr3o1_400.jpg"
-              alt="El Dorado"></div>
-          <div class="menu-titles">
-            <h1 class="">Dutch Von Cheesy </h1>
-          </div>
-          <div class="menu-items ">
-            <ul>
-              <li>Juicy...</li>
-              <li>Tasty...</li>
-              <li>Dutch Cheddar Cheese...</li>
-              <li>Fresh...</li>
-              <li>Lettuce...</li>
-              <li>Tomatos...</li>
-              <li>Premium Smoky Gaucho Sauce&copy;</li>
-            </ul>
+        <div class="col-md-6">
+          <!-- left-hand column-->
+          <div>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td colspan="3" class="text-center">
+                    <span class="sec-title">Mains</span>
+                  </td>
+                </tr>
+                <% for (const item of mains) { %>
+                <tr>
+                  <td class="menu-text menu-item-<%=(item.id)%>">
+                    <span class="dish-name"><%=item.item %></span>
+                    </br>
+                    <span class="dish-desc"><%=item.description %></span>
+                  <td class="price"><%=(item.price / 100) %></td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
           </div>
         </div>
-        <div class="col-sm-3 col-md-3">
-          <div class="menu-images "><img
-              src="https://41.media.tumblr.com/5892daadaed762fbc9b3553a1b876a04/tumblr_nteecactZc1ud7rr3o1_1280.jpg"
-              alt="Smoothies"></div>
-          <div class="menu-titles">
-            <h1 class="">Swiss Champignon</h1>
-          </div>
-          <div class="menu-items ">
-            <ul>
-              <li>Juicy...</li>
-              <li>Tasty...</li>
-              <li>Grilled Mushroom...</li>
-              <li>SirLoin Beef...</li>
-              <li>Fresh...</li>
-              <li>Tomatos...</li>
-              <li>Grilled Onions...</li>
-              <li>Smokey Mushroom Mayo&copy;</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-3 col-md-3">
-          <div class="menu-images "><img
-              src="https://41.media.tumblr.com/6f3ee3d900b7018d98e9a63a6877ced9/tumblr_ntee05e9Y41ud7rr3o1_1280.jpg"
-              alt="TastyBoxTasty"></div>
-          <div class="menu-titles">
-            <h1 class="">TastyBoxTasty</h1>
-          </div>
-          <div class="menu-items ">
-            <ul>
-              <li>Juicy...</li>
-              <li>Tasty...</li>
-              <li>Grilled...</li>
-              <li>Picanha Beef...</li>
-              <li>Fresh...</li>
-              <li>Lettuce...</li>
-              <li>Tomatos...</li>
-              <li>Premium SuperChipotle Sauce&copy;</li>
-            </ul>
+
+        <div class="col-md-6">
+          <!-- right-hand column-->
+          <div>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td colspan="3" class="text-center">
+                    <span class="sec-title">Appetizers</span>
+                  </td>
+                </tr>
+                <% for (const item of appetizers) { %>
+                <tr>
+                  <td class="menu-text menu-item-<%=(item.id)%>">
+                    <span class="dish-name"><%=item.item %></span>
+                    </br>
+                    <span class="dish-desc"><%=item.description %></span>
+                  <td class="price"><%=(item.price / 100) %></td>
+                </tr>
+                <% } %>
+
+                <tr>
+                  <td colspan="3" class="text-center">
+                    <span class="sec-title">Drinks</span>
+                  </td>
+                </tr>
+                <% for (const item of drinks) { %>
+                <tr>
+                  <td class="menu-text menu-item-<%=(item.id)%>">
+                    <span class="dish-name"><%=item.item %></span>
+                    </br>
+                    <span class="dish-desc"><%=item.description %></span>
+                  <td class="price"><%=(item.price / 100) %></td>
+                </tr>
+                <% } %>
+
+                <tr>
+                  <td colspan="3" class="text-center">
+                    <span class="sec-title">Desserts</span>
+                  </td>
+                </tr>
+                <% for (const item of desserts) { %>
+                <tr>
+                  <td class="menu-text menu-item-<%=(item.id)%>">
+                    <span class="dish-name"><%=item.item %></span>
+                    </br>
+                    <span class="dish-desc"><%=item.description %></span>
+                  <td class="price"><%=(item.price / 100) %></td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm-3 col-md-3">
-          <div class="menu-images "><img
-              src="https://40.media.tumblr.com/6a1ff4e6906784da2edce2aaef9180e9/tumblr_ntee2rarP71ud7rr3o1_400.jpg"
-              alt="PremiumTasty"></div>
-          <div class="menu-titles">
-            <h1 class="">PremiumTasty</h1>
-          </div>
-          <div class="menu-items ">
-            <ul>
-              <li>Juicy...</li>
-              <li>Tasty...</li>
-              <li>Grilled...</li>
-              <li>Premium Angus Beef...</li>
-              <li>Fresh...</li>
-              <li>Premium Lettuce...</li>
-              <li>Premium Tomatos...</li>
-              <li>Premium Whisky 'n Herbs Sauce&copy;</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-3 col-md-3">
-          <div class="menu-images "><img
-              src="https://36.media.tumblr.com/47514f75bd27eee85905be08781c1c37/tumblr_ntee57Pef51ud7rr3o1_1280.jpg"
-              alt="CheeseBaconWar"></div>
-          <div class="menu-titles">
-            <h1 class="">Cheese&Bacon War</h1>
-          </div>
-          <div class="menu-items ">
-            <ul>
-              <li>Juicy...</li>
-              <li>Tasty...</li>
-              <li>Grilled...</li>
-              <li>SirLoin Beef...</li>
-              <li>Premium Bacon...</li>
-              <li>Smoked Cheddar...</li>
-              <li>More Premium Bacon...</li>
-              <li>Pepper-Garlic-Chilli Sauce&copy;</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-3 col-md-3">
-          <div class="menu-images "><img
-              src="https://40.media.tumblr.com/249b55f25e49eddca7ed1b8cbef655a1/tumblr_ntee7hR7hG1ud7rr3o1_1280.jpg"
-              alt="Smoothies"></div>
-          <div class="menu-titles">
-            <h1 class="">Double Trouble</h1>
-          </div>
-          <div class="menu-items ">
-            <ul>
-              <li>Juicy...</li>
-              <li>Tasty...</li>
-              <li>Grilled...</li>
-              <li>Angus Beef...</li>
-              <li>Premium Bacon...</li>
-              <li>Premium Lettuce...</li>
-              <li>Premium House Bun...</li>
-              <li>Premium Chipotle&Limones Sauce&copy;</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-3 col-md-3">
-          <div class="menu-images "><img
-              src="https://41.media.tumblr.com/f79a3418ac5c73450ad1d80e627dd36e/tumblr_ntee9uHgZT1ud7rr3o1_540.jpg"
-              alt="Sargent Pepper!"></div>
-          <div class="menu-titles">
-            <h1 class="">Sargent Pepper!</h1>
-          </div>
-          <div class="menu-items ">
-            <ul>
-              <li>Juicy...</li>
-              <li>Tasty...</li>
-              <li>Grilled...</li>
-              <li>TenderLoin Beef...</li>
-              <li>Premium Bacon...</li>
-              <li>Cheddar....</li>
-              <li>Dutch Cheddar Cheese...</li>
-              <li>Lime&Pepper&Onion Mayo&copy;</li>
-            </ul>
-          </div>
-        </div>
-      </div>
 
     </div>
     <!-- /.container -->
@@ -336,108 +252,13 @@
 
 
   <div id="special-offser" class="parallax pricing">
-    <div class="bg-overlay"></div>
+    <div class="bg-overlay-white"></div>
     <div class="container inner">
 
 
       <h2 class="section-title text-center">Location</h2>
       <p class="lead main text-center">Where to find us!</p>
-
-      <div class="row">
-        <div class="col-md-6 col-sm-6">
-
-          <div class="pricing-item">
-
-            <a href="#"><img class="img-responsive img-thumbnail"
-                src="https://40.media.tumblr.com/f2c88699722c4ff010cf4574f66ee615/tumblr_ntdeeqTPxs1ud7rr3o1_540.jpg"
-                alt=""></a>
-
-            <div class="pricing-item-details">
-
-              <h3><a href="#">TastyBoxBite</a></h3>
-
-              <p>Char Grilled Chicken Filet. Your Choice of: Fresh Lettuce, Tomatos and Red Onions, and Award Winning
-                Premium Filet Sauce&copy;</p>
-
-              <a class="btn btn-danger" href="#">Order now</a>
-              <div class="clearfix"></div>
-            </div>
-            <!--price tag-->
-            <span class="hot-tag br-red">$16</span>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-
-          <div class="pricing-item">
-
-            <a href="#"><img class="img-responsive img-thumbnail"
-                src="https://36.media.tumblr.com/0d9c63e8da5a52e19d58afba5a937f7c/tumblr_ntdeir37zJ1ud7rr3o1_400.jpg"
-                alt=""></a>
-
-            <div class="pricing-item-details">
-
-              <h3><a href="#">JuicyBoxBite</a></h3>
-
-              <p>Char Grilled Picanha Beef. Your Choice of: Fresh Lettuce, Tomatos, Jalapeños and Red Onions and Award
-                Winning Premium Smoky Gaucho Sauce&copy;</p>
-
-              <a class="btn btn-danger" href="#">Order now</a>
-              <div class="clearfix"></div>
-            </div>
-            <!--price tag-->
-            <span class="hot-tag br-lblue">$17</span>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-        <div class="clearfix visible-md"></div>
-        <div class="col-md-6 col-sm-6">
-
-          <div class="pricing-item">
-
-            <a href="#"><img class="img-responsive img-thumbnail"
-                src="https://40.media.tumblr.com/90deb07aa9071a6de25739c32a6e6d62/tumblr_ntdejqEuUE1ud7rr3o1_400.jpg"
-                alt=""></a>
-
-            <div class="pricing-item-details">
-
-              <h3><a href="#">FishyBoxBite</a></h3>
-
-              <p>Char Grilled Breaded Salmon Filet. Your Choice of: Fresh Lettuce, Tomatos, Lime slices and Red Onions
-                and Award Winning Premium Chipotle&Limones Sauce&copy</p>
-
-              <a class="btn btn-danger" href="#">Order now</a>
-              <div class="clearfix"></div>
-            </div>
-            <!--price tag-->
-            <span class="hot-tag br-green">$14</span>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-
-          <div class="pricing-item">
-
-            <a href="#"><img class="img-responsive img-thumbnail"
-                src="https://40.media.tumblr.com/d341dd2b29c7de51d25b796a0110b8df/tumblr_ntddiizdyH1ud7rr3o1_400.jpg"
-                alt=""></a>
-
-            <div class="pricing-item-details">
-
-              <h3><a href="#">ShrimppyBoxBite</a></h3>
-
-              <p>Char Grilled Breaded Tiger Shrimps. Your Choice of: Fresh Lettuce, Tomatos, Lime slices and Red Onions
-                and Award Winning Premium Chipotle&Limones Sauce&copy</p>
-
-              <a class="btn btn-danger" href="#">Order now</a>
-              <div class="clearfix"></div>
-            </div>
-            <!--price tag-->
-            <span class="hot-tag br-red">$17</span>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-      </div>
+      <img src="/images/kak.png">
 
     </div>
     <!-- /.container -->
@@ -526,11 +347,11 @@
           <p>Mon to Sat: 6:00 PM - 1:00 AM<br>Sun: 5:30 PM - 12:00 AM</p>
 
           <h3><i class="fa fa-map-marker fa-fw"></i>Directions</h3>
-          <p>Av das Américas, 4.666, Shopping Barra, Barra da Tijuca, Rio de Janeiro, RJ, Brazil</p>
+          <p>Bikini Bottom, Toronto Islands, Toronto, Canada</p>
 
           <h3><i class="fa fa-mobile fa-fw"></i>Contacts</h3>
-          <p>Email: <a href="mailto:yourname@tastybox.com">tastybox@customerservice.com</a></p>
-          <p>Phone: +234 3456 678</p>
+          <p>Email: <a href="mailto:kak@krustyagedkrab.com">kak@krustyagedkrab.com</a></p>
+          <p>Phone: +1 647 234 6500</p>
 
         </div><!-- col-md-6 -->
       </div>
@@ -546,17 +367,58 @@
     <div class="bg-overlay"></div>
     <div class="container inner">
 
-      <h2 class="section-title text-center">TastyBox Chefs</h2>
-      <p class="lead main text-center">The most amazing TastyBox Talent you'll find below.</p>
+      <div class="col-sm-4">
+     <h2 class="section-white text-center">Krusty Aged Krab Chefs</h2>
+      <p class="lead2 main text-center">The sexiest talent you will ever find.</p>
+      </div>
+
 
       <div class="row text-center chefs">
+          <div class="col-sm-4">
+              <div class="col-wrapper">
+                <div class="icon-wrapper">
+                  <img
+                    src="/images/andrew.jpg">
+                </div>
+                <h3>Andrew Ting</h3>
+                <p>Master Chef</p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-wrapper">
+                  <div class="icon-wrapper">
+                    <img
+                      src="/images/jayjay1.png">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                  <div class="col-wrapper">
+                    <div class="icon-wrapper">
+                      <img
+                        src="/images/jayjay.jpg">
+                    </div>
+                    <h3>Jay Jay 'Abs' Ting</h3>
+                    <p>Crab Supplier</p>
+                  </div>
+                </div>
+        <div class="col-sm-4">
+          <div class="col-wrapper">
+            <div class="icon-wrapper">
+              <img
+                src="/images/jayjay2.png">
+            </div>
+            <h3>Handpicked Crabs</h3>
+            <p>By These Guns</p>
+          </div>
+        </div>
         <div class="col-sm-4">
           <div class="col-wrapper">
             <div class="icon-wrapper">
               <img
                 src="https://40.media.tumblr.com/88bd9055c0827ae9d3184a37ccf095b1/tumblr_ntegw5xpqN1ud7rr3o1_400.jpg">
             </div>
-            <h3>Coming Soon</h3>
+            <h3>Kevin Yoo</h3>
             <p>More Info Coming Soon.</p>
           </div>
         </div>
@@ -566,20 +428,20 @@
               <img
                 src="https://40.media.tumblr.com/88bd9055c0827ae9d3184a37ccf095b1/tumblr_ntegw5xpqN1ud7rr3o1_400.jpg">
             </div>
-            <h3>Coming Soon</h3>
+            <h3>Azzam Athar</h3>
             <p>More Info Coming Soon.</p>
           </div>
         </div>
         <div class="col-sm-4">
-          <div class="col-wrapper">
-            <div class="icon-wrapper">
-              <img
-                src="https://40.media.tumblr.com/88bd9055c0827ae9d3184a37ccf095b1/tumblr_ntegw5xpqN1ud7rr3o1_400.jpg">
+            <div class="col-wrapper">
+              <div class="icon-wrapper">
+                <img
+                  src="https://40.media.tumblr.com/88bd9055c0827ae9d3184a37ccf095b1/tumblr_ntegw5xpqN1ud7rr3o1_400.jpg">
+              </div>
+              <h3>Kevin Suen</h3>
+              <p>More Info Coming Soon.</p>
             </div>
-            <h3>Coming Soon</h3>
-            <p>More Info Coming Soon.</p>
           </div>
-        </div>
       </div>
 
     </div>
@@ -592,7 +454,9 @@
     <div class="container inner">
       <div class="row">
         <div class="col-sm-6">
-          &copy; Copyright TastyBox 2013
+          <h3>Krusty Aged Krab</h3>
+          Brought to you by KAK (Kevin Suen, Azzam Athar, Kevin Yoo)
+
 
         </div>
         <div class="col-sm-6">
