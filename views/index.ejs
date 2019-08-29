@@ -24,6 +24,8 @@
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Kreon:300,400,700'>
   <link rel="stylesheet" href="styles/style.css">
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -67,8 +69,8 @@
             </div>
           <% } else { %>
             <div class="login-register">
-              <a href="#login" data-toggle="modal" data-target="#modal-login">Login</a>
-              <a href="/register">Register</a>
+              <a href="" data-toggle="modal" data-target="#modal-login">Login</a>
+              <a href="" data-toggle="modal" data-target="#modal-register">Register</a>
             </div>
           <% } %>
 
@@ -106,6 +108,36 @@
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Create Account</h4>
+          </div>
+          <div class="modal-body">
+            <form action="/register" method="POST">
+              <div class="form-group mb-2">
+                <label for="name">Full Name</label>
+                <input class="form-control" type="text" name="name" placeholder="Enter your first and last name">
+                <label for="email">Email Address</label>
+                <input class="form-control" type="email" name="email" placeholder="Enter email">
+                <label for="password">Password</label>
+                <input class="form-control" type="password" name="password" placeholder="Password">
+                <label for="phone_number">Phone Number</label>
+                <input class="form-control" type="tel" name="phone_number" placeholder="###-###-####">
+                <% console.log(recaptcha) %>
+                <div class="g-recaptcha" data-sitekey="<%=recaptcha %>"></div>
+                <br/>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Register</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
   <div id="header-container">
       <div class="video-container">

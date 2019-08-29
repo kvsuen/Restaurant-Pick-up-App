@@ -11,6 +11,8 @@ const app           = express();
 const morgan        = require('morgan');
 const cookieSession = require('cookie-session');
 
+const RECAPTCHAKEY = process.env.RECAPTCHA_KEY;
+
 const db = require('./database');
 
 // Cookie session setup
@@ -63,6 +65,7 @@ app.get("/", (req, res) => {
       templateVars.desserts = values[2];
       templateVars.drinks = values[3];
       templateVars.user = values[4];
+      templateVars.recaptcha = RECAPTCHAKEY;
       res.render("index", templateVars);
     })
     .catch(err => console.error(null, err.stack));
