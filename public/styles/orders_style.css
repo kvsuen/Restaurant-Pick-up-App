@@ -246,8 +246,11 @@ header nav.navbar.navbar-expand-lg {
   z-index: 5;
 }
 
-header#persistant a.navitem {
+header#persistant a {
   color: white;
+}
+
+header#persistant a.navitem {
   font-family: 'Kreon', serif;
   margin-left: 25px;
   font-size: 25px;
@@ -271,17 +274,33 @@ header#persistant div span {
 }
 
 header#persistant div a:hover {
-  background: #bd5109;
   color: white;
   text-shadow: none;
   text-decoration: none;
 }
 
-header#persistant div::before {
+header#persistant div a.navitem:hover {
+  background: #bd5109;
+}
+
+header#persistant h1 {
   content: '';
   /* width: 145px; */
   margin-right: auto;
-  flex: 1
+  flex: 1;
+
+  font-weight: 100;
+  font-family: 'Lobster', 'Kreon', 'Serif';
+  font-size: 40px;
+  text-align: left;
+  right: 50px;
+  color: white;
+  text-shadow:
+      3px 3px 0 black,
+    -1px -1px 0 black,
+      1px -1px 0 black,
+      -1px 1px 0 black,
+      1px 1px 0 black;
 }
 
 header#persistant img {

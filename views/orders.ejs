@@ -14,8 +14,8 @@
   <!-- External CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <!-- <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Alex+Brush|Cardo|Great+Vibes'> -->
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Kreon:300,400,700'>
+  <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
   <!-- Internal CSS -->
   <link rel="stylesheet" href="styles/orders_style.css">
 
@@ -27,6 +27,13 @@
   <script type="text/javascript" src="/scripts/orders.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
+  <% if (!user) { %>
+    <script>
+      window.stop();
+      document.location.replace("/");
+    </script>
+  <% } %>
+
 </head>
 
 <body>
@@ -35,15 +42,11 @@
     <header id="persistant">
       <nav class="navbar fixed-top navbar-expand-lg">
         <div>
+          <h1><a href="/">Krusty Aged Crab</a></h1>
           <a class="logo" href="#"><img src="https://i.imgur.com/aGomLui.png" alt=""></a>
           <span>
-            <% if (!user) { %>
-              <script>
-                window.stop();
-                document.location.replace("/");
-              </script>
-            <% } else { %>
-              Logged in as <%=user[0].name%>.
+            <% if (user) { %>
+              Logged in as <%=user[0].name%>
             <% } %>
             <a class="navitem toggle-cart" href="#">View Cart</a>
           </span>
