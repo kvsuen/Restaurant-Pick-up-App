@@ -249,6 +249,8 @@ header nav.navbar.navbar-expand-lg {
 header#persistant a.navitem {
   color: white;
   font-family: 'Kreon', serif;
+  margin-left: 25px;
+  font-size: 25px;
 }
 header#persistant div {
   justify-content: space-between;
@@ -258,12 +260,17 @@ header#persistant div {
   align-content: center;
 }
 
-header#persistant div a.navitem {
-  width: 125px;
+header#persistant div span {
+  /* width: 125px; */
   padding: 10px;
+  margin-left: auto;
+  flex: 1;
+  text-align: right;
+  color: rgb(233, 92, 92);
+  font-size: 20px;
 }
 
-header#persistant div a.navitem:hover {
+header#persistant div a:hover {
   background: #bd5109;
   color: white;
   text-shadow: none;
@@ -272,7 +279,9 @@ header#persistant div a.navitem:hover {
 
 header#persistant div::before {
   content: '';
-  width: 145px;
+  /* width: 145px; */
+  margin-right: auto;
+  flex: 1
 }
 
 header#persistant img {
@@ -280,4 +289,10 @@ header#persistant img {
   height: 185px;
   top: -43px;
   position: relative;
+
+}
+
+header a.logo {
+  flex: 1;
+  text-align: center;
 }
