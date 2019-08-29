@@ -5,7 +5,7 @@
 
 body {
   background-color: #f4efeb;
-  font-family: 'Cardo', serif;
+  font-family:'Kreon',serif;
 }
 
 #bg {
@@ -23,8 +23,8 @@ body {
 }
 
 .sec-title {
-  font-family: 'Alex Brush', cursive;
-  font-size: 3em;
+  font-family:'Kreon',serif;
+  font-size: 2.5rem;
   font-weight: 500;
   color: #321602;
 }
@@ -32,11 +32,11 @@ body {
 .dish-name {
   font-weight: 600;
   font-variant: small-caps;
-  font-size: 1.1em;
+  font-size: 1.4rem;
 }
 
 .dish-desc {
-  font-size: .9em;
+  font-size: 1.0rem;
 }
 
 .price {
@@ -53,11 +53,17 @@ body {
 
 .table td.price {
   padding-right: 30px;
+  padding-top: 15px;
+  font-size: 1.05rem;
 }
 
 .add input::-webkit-inner-spin-button, .add input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   appearance: none;
+}
+
+.table .add {
+  padding-top: 15px;
 }
 
 .add .quantity {
@@ -66,6 +72,7 @@ body {
   outline: none;
   border: 0;
   text-align: center;
+  font-size: 1.05rem;
 }
 
 .add .increment {
@@ -79,8 +86,9 @@ body {
 
 .add span {
   text-align: center;
-  width: 3em;
+  width: 3rem;
   visibility: hidden;
+  padding-right: 2px;
 }
 
 img {
@@ -115,7 +123,7 @@ img {
 }
 
 #menu header {
-  font-family: 'Alex Brush', cursive;
+  font-family:'Kreon',serif;
   background: white;
   display: flex;
   justify-content: space-between;
@@ -131,7 +139,7 @@ img {
 
 #menu header a {
   color: rgb(220, 53, 69);
-  font-family: 'Cardo', serif;
+  font-family:'Kreon',serif;
   font-variant: small-caps;
 }
 #menu header a:hover {
@@ -144,7 +152,7 @@ img {
 
 #menu article {
   align-items: center;
-  font-variant: small-caps;
+  /* font-variant: small-caps; */
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 10px 0;
 }
@@ -197,6 +205,10 @@ img {
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
   padding: 0 20px;
   font-variant: small-caps;
+}
+
+#menu footer a {
+  font-size: 1.5rem;
 }
 /* */
 
