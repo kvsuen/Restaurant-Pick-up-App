@@ -254,6 +254,7 @@ header#persistant a.navitem {
   font-family: 'Kreon', serif;
   margin-left: 25px;
   font-size: 25px;
+  font-weight: bold;
 }
 header#persistant div {
   justify-content: space-between;

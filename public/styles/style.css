@@ -243,8 +243,8 @@ video {
 
 #navbar div.login-register {
   position: absolute;
-  top: 10px;
-  right: 0;
+  top: 17px;
+  right: 10px;
 }
 
 #navbar div.login-register a {
@@ -266,7 +266,7 @@ video {
 
 #navbar div.login-register span {
   color: rgb(233, 92, 92);
-  font-size: 2rem;
+  font-size: 20px;
 }
 
 div.modal-dialog {
