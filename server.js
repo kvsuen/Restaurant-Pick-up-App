@@ -55,9 +55,19 @@ app.use("/checkout", checkoutRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  let templateVars = {};
+    Promise.all([db.getMenu("main"), db.getMenu("appetizer"), db.getMenu("dessert"), db.getMenu("drink")])
+      .then((values) => {
+        templateVars.mains = values[0];
+        templateVars.appetizers = values[1];
+        templateVars.desserts = values[2];
+        templateVars.drinks = values[3];
+        res.render("index", templateVars);
+      })
+      .catch(err => console.error(null, err.stack));
 });
 
 app.listen(PORT, () => {
   console.log(`KAK listening on port ${PORT}`);
 });
+
