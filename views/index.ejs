@@ -59,7 +59,12 @@
 
           <li><a href="#facts">Facts</a></li>
           <li><a href="#food-menu">Food Menu</a></li>
-          <li><a href="#special-offser">Location</a></li>
+          <li><a href="#location">Location</a></li>
+          <div class="login-register">
+            <a href="#login" data-toggle="modal" data-target="#modal-login">Login</a>
+            <a href="/register">Register</a>
+          </div>
+
 
 
           <!--fix for scroll spy active menu element-->
@@ -68,8 +73,33 @@
         </ul>
       </div>
       <!--/.navbar-collapse -->
+
     </div><!-- container -->
   </div><!-- menu -->
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Login</h4>
+        </div>
+        <div class="modal-body">
+          <form action="/login" method="POST">
+            <div class="form-group mb-2">
+              <label for="email">Email</label>
+              <input class="form-control" type="email" name="email" placeholder="Enter email">
+              <label for="password">Password</label>
+              <input class="form-control" type="password" name="password" placeholder="Password" >
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-danger">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div id="header-container">
       <div class="video-container">
@@ -251,7 +281,7 @@
 
 
 
-  <div id="special-offser" class="parallax pricing">
+  <div id="location" class="parallax pricing">
     <div class="bg-overlay-white"></div>
     <div class="container inner">
 
@@ -472,6 +502,10 @@
     </div>
     <!-- /.container -->
   </footer>
+
+
+
+
   <!-- partial -->
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery.actual/1.0.17/jquery.actual.min.js'></script>
