@@ -1,0 +1,48 @@
+html {
+	scroll-behavior: smooth;
+}
+
+header nav.navbar.navbar-expand-lg {
+  background-color: rgb(29, 28, 28);
+  height: 55px;
+  font-size: 25px;
+  margin-bottom: 0;
+  color: white;
+  z-index: 5;
+}
+
+header#persistant a.navitem {
+  color: white;
+  font-family: 'Kreon', serif;
+}
+header#persistant div {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  max-height: 55px;
+  align-content: center;
+}
+
+header#persistant div a.navitem {
+  width: 125px;
+  padding: 10px;
+}
+
+header#persistant div a.navitem:hover {
+  background: #bd5109;
+  color: white;
+  text-shadow: none;
+  text-decoration: none;
+}
+
+header#persistant div::before {
+  content: '';
+  width: 145px;
+}
+
+header#persistant img {
+  width: 245px;
+  height: 185px;
+  top: -43px;
+  position: relative;
+}
