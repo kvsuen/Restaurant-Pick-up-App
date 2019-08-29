@@ -141,6 +141,7 @@ img {
   color: rgb(220, 53, 69);
   font-family:'Kreon',serif;
   font-variant: small-caps;
+  font-size: 1.5rem;
 }
 #menu header a:hover {
   text-decoration: none;
@@ -210,7 +211,7 @@ img {
 #menu footer a {
   font-size: 1.5rem;
 }
-/* */
+/* overlay when cart opens */
 
 .lightbox {
   position: fixed;
@@ -228,4 +229,55 @@ body.open .lightbox {
   width: 100%;
   opacity: 0.8;
   transition: opacity 250ms ease-in-out, width 0ms ease-in-out;
+}
+
+/* nav bar */
+
+html {
+	scroll-behavior: smooth;
+}
+
+header nav.navbar.navbar-expand-lg {
+  background-color: rgb(29, 28, 28);
+  height: 55px;
+  font-size: 25px;
+  margin-bottom: 0;
+  color: white;
+  z-index: 5;
+}
+
+header#persistant a.navitem {
+  color: white;
+  font-family: 'Kreon', serif;
+}
+header#persistant div {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  max-height: 55px;
+  align-content: center;
+}
+
+header#persistant div a.navitem {
+  width: 125px;
+  padding: 10px;
+}
+
+header#persistant div a.navitem:hover {
+  background: #bd5109;
+  color: white;
+  text-shadow: none;
+  text-decoration: none;
+}
+
+header#persistant div::before {
+  content: '';
+  width: 145px;
+}
+
+header#persistant img {
+  width: 245px;
+  height: 185px;
+  top: -43px;
+  position: relative;
 }
