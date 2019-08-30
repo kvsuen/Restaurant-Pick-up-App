@@ -253,6 +253,11 @@ video {
   font-weight: bold;
 }
 
+#navbar div.login-register a.logged {
+  color: rgb(233, 92, 92);
+  font-size: 20px;
+}
+
 #navbar div.login-register a:hover {
   background: #bd5109;
   color: white;
@@ -290,6 +295,7 @@ div.modal-body input {
 div.modal-body div.g-recaptcha {
   margin-left: 50px;
 }
+
 
 /* ==========================================================================
     03. Navigation

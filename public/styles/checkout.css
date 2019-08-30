@@ -291,3 +291,7 @@ header a.logo {
 flex: 1;
 text-align: center;
 }
+
+header#persistant div span a.logged {
+  color: rgb(233, 92, 92);
+}
