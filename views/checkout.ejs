@@ -17,6 +17,13 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 <script type="text/javascript" src="/scripts/checkout.js"></script>
 
+<% if (!user) { %>
+  <script>
+    window.stop();
+    document.location.replace("/");
+  </script>
+<% } %>
+
 </head>
 <body>
     <header id="persistant">

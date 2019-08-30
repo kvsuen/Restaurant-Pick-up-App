@@ -87,9 +87,11 @@ $(document).ready(function() {
       dataType: "json"
     })
       .success(function() {
+        window.localStorage.clear();
         location.href = "/";
       })
       .error(function() {
+        window.localStorage.clear();
         setTimeout(() => {
           location.href = "/";
         }, 2000);
