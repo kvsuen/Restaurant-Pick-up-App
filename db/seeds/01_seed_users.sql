@@ -1,4 +1,5 @@
 -- Users table seeds here (Example)
-INSERT INTO users (name, email, password, phone_number)
-VALUES ('Kevin', 'kyoo95@mail.com', '123', '123123123'),
-('Test', 'test@test.com', 'test', '1231231234');
+-- ALTER SEQUENCE users_id_seq RESTART WITH 1;
+-- INSERT INTO users (name, email, password, phone_number)
+-- VALUES ('Kevin', 'kyoo95@mail.com', '123', '123123123'),
+-- ('Test', 'test@test.com', 'test', '1231231234');
