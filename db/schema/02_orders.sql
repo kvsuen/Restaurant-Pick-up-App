@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS orders CASCADE;
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  order_time TIMESTAMP,
+  order_time VARCHAR(255),
   credit_card_number VARCHAR(255),
   card_expiry_date VARCHAR(255),
   card_security_code VARCHAR(255)

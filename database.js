@@ -19,6 +19,7 @@ const userLogin = function(email, password) {
 exports.userLogin = userLogin;
 
 
+
 // Register: Adds a user to the database
 
 const userRegister = function(user) {
@@ -62,15 +63,10 @@ exports.getMenu = getMenu;
 
 const createOrderTime = function(order) {
   return pool.query(`
-  INSERT INTO orders (order_time, user_id, order_id)
-  SELECT orders.order_time, orders.user_id, order_details.order_id
-  FROM (
-    VALUES
-    ($1, $2, $3)
-    )
-  JOIN order_details ON orders.id = order_id
+  INSERT INTO orders (order_time, user_id)
+  VALUES ($1, $2)
   RETURNING *
-  `, [order.order_time, order.user_id, order.order_id])
+  `, [Date.now(), order])
     .then(res => res.rows)
     .catch(err => console.error(null, err.stack));
 }
@@ -79,22 +75,17 @@ exports.createOrderTime = createOrderTime
 
 // Order Details: Creates a quantity of items ordered for a user's order
 
-const createOrderDetails = function(order) {
+const createOrderQuantity = function(order, order_id) {
   return pool.query(`
-  INSERT INTO order_details (quantity, user_id, order_id)
-  SELECT order_details.quantity, orders.user_id, order_details.order_id
-  FROM (
-    VALUES
-    ($1, $2, $3)
-    )
-  JOIN orders ON orders.id = order_id
+  INSERT INTO order_details (quantity, order_id, purchase_price, menu_item_id)
+  VALUES ($1, $2, $3, $4)
   RETURNING *
-  `, [order.quantity, order.user_id, order.order_id])
+  `, [Number(order.quantity), order_id, Number(order.price), order.id])
   .then(res => res.rows)
   .catch(err => console.error(null, err.stack));
 }
 
-exports.createOrderDetails = createOrderDetails
+exports.createOrderQuantity = createOrderQuantity
 
 // Insert users credit card information
 
