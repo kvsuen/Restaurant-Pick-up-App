@@ -29,10 +29,10 @@ module.exports = (db) => {
     const numbers = [Number(process.env.TWILIO_NUMBER_SEND_1), Number(process.env.TWILIO_NUMBER_SEND_2)] ;
     const body = ['Your order has been placed! It will be ready in 25-30 minutes.', 'An order has been placed by Kevin!'];
 
-    db.createOrderTime(req.session.userID)
+    db.createOrderTime(req.session.userId)
       .then((values) => {
         for (const item of req.body.data) {
-          db.createOrderQuantity(item, values.id)
+          db.createOrderQuantity(item, values[0].user_id)
         }
     }).catch(err => console.error(null, err.stack));
 

@@ -44,6 +44,7 @@ const logoutRoutes = require("./routes/logout");
 const registerRoutes = require("./routes/register");
 const ordersRoutes = require("./routes/orders");
 const checkoutRoutes = require("./routes/checkout");
+const userHistoryRoutes = require("./routes/user_history");
 
 // Mount all resource routes
 // app.use("/api/users", usersRoutes(db));
@@ -52,6 +53,7 @@ app.use("/logout", logoutRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/orders", ordersRoutes(db));
 app.use("/checkout", checkoutRoutes(db));
+app.use("/users", userHistoryRoutes(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
