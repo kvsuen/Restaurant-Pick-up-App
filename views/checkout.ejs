@@ -1,24 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Credit Card Checkout | Daily UI #002</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+<link rel="stylesheet" href="/styles/checkout.css">
+<!-- partial:index.partial.html -->
+<!-- Compiled and minified JavaScript -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script type="text/javascript" src="/scripts/checkout.js"></script>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
 
-  <body>
-      <% include partials/_header %>
 
-    <h1>Checkout</h1>
-    <a class="btn btn-primary" href="/orders" role="button">Edit order</a>
-    <a class="btn btn-primary" href="/" role="button">Confirm order!</a>
-  </body>
+<!--Begin Checkout-->
+
+<div class="container">
+  <p class="help" style="color:#ffffff;">
+  <div class="box card-panel z-depth-3">
+    <div class="merchant">
+      <img id="crickets" src="https://images-platform.99static.com/arg365fIKXGO30UrnwfLBAKdtPc=/0x0:1000x1000/500x500/top/smart/99designs-contests-attachments/98/98509/attachment_98509973" />
+      <h5 class="center-align">Krusty Aged Krab</h5>
+    </div>
+    <div class="invoice">
+      <table class="highlight">
+        <thead>
+          <tr>
+            <th>QTY</th>
+            <th>ITEM</th>
+            <th class="right-align">PRICE</th>
+          </tr>
+        </thead>
+        <tbody id="order-container">
+        </tbody>
+        <tfoot id="order-total">
+            <td class="right-align bold">Total</td>
+        </tfoot>
+      </table>
+    </div>
+    <div class="payment">
+      <h5>Payment Information</h5>
+      <div class="credit-card-box card-panel z-depth-2 animation-element slide-left in-view">
+        <div class="flip">
+          <div class="front">
+            <div class="logo">
+              <img src="http://cdn.flaticon.com/svg/39/39134.svg" alt="" />
+            </div>
+            <div class="number input-field">
+              <label for="card-number">Card Number</label>
+              <input type="text" id="card-number" class="input-card-number" maxlength="4" />
+              <input type="text" id="card-number-1" class="input-card-number" maxlength="4" />
+              <input type="text" id="card-number-2" class="input-card-number" maxlength="4" />
+              <input type="text" id="card-number-3" class="input-card-number" maxlength="4" />
+            </div>
+            <div class="cvv input-field">
+              <label for="card-cvv">CVV</label>
+              <input type="password" id="card-cvv" class="input-card-cvv" maxlength="3" />
+            </div>
+            <div class="card-holder input-field">
+              <label for="name">Card Holder</label>
+              <input type="text" name="name" id="name">
+            </div>
+
+            <div class="card-expiration-date input-field">
+              <select id="month">
+                <option></option>
+          <option>Jan</option>
+          <option>Feb</option>
+          <option>Mar</option>
+          <option>Apr</option>
+          <option>May</option>
+          <option>Jun</option>
+          <option>Jul</option>
+          <option>Aug</option>
+          <option>Sep</option>
+          <option>Oct</option>
+          <option>Nov</option>
+          <option>Dec</option>
+              </select>
+              <select>
+                          <option></option>
+          <option>2016</option>
+          <option>2017</option>
+          <option>2018</option>
+          <option>2019</option>
+          <option>2020</option>
+          <option>2021</option>
+          <option>2022</option>
+          <option>2023</option>
+          <option>2024</option>
+          <option>2025</option>
+              </select>
+              <label>Expires</label>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="button checkout row">
+      <button id="checkout" class="checkout col s12 btn-large green btn waves-effect waves-dark register"><span>Checkout</span> <i class="fa fa-check"></i></button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  $(document).ready(function() {
+        $('select').material_select();
+        $('checkout').on("click", function(event) {
+          console.log("in here")
+        });
+    });
+</script>
+<!-- partial -->
+
+
+
+</body>
+</html>
