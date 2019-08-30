@@ -25,6 +25,12 @@
   <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
   <!-- Interal JS-->
 
+  <% if (!user) { %>
+    <script>
+      window.stop();
+      document.location.replace("/");
+    </script>
+  <% } %>
 
 </head>
 <body>
@@ -41,11 +47,18 @@
         </div>
       </nav>
   </header>
+
+  <% if (orders[0]) { %>
+
   <div class="container">
       <div class="card">
           <div class="card-body">
             <h5 class="card-title">Order Summary</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Your order placed on "<%= orders[0].order_time %>"</h6>
+            <h6 class="card-subtitle mb-2 text-muted">
+
+              Your order placed on "<%= orders[0].order_time %>"
+
+            </h6>
             <table class="table">
                 <thead>
                   <tr>
@@ -70,6 +83,12 @@
           </div>
         </div>
   </div>
+
+  <% } else { %>
+
+    <h1> No orders!</h1>
+
+  <% } %>
 
 </body>
 </html>
