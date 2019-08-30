@@ -87,7 +87,7 @@ const createOrderTime = function(order) {
   INSERT INTO orders (order_time, user_id)
   VALUES ($1, $2)
   RETURNING *
-  `, [Date.now(), order])
+  `, [Date().toString(), order])
     .then(res => res.rows)
     .catch(err => console.error(null, err.stack));
 }
