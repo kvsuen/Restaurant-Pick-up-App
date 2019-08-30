@@ -14,7 +14,22 @@
 
 </head>
 <body>
-
+    <header id="persistant">
+        <nav class="navbar fixed-top navbar-expand-lg">
+          <div>
+            <h1><a href="/">Krusty Aged Crab</a></h1>
+            <a class="logo" href="#"><img src="https://i.imgur.com/aGomLui.png
+   https://i.imgur.com/aGomLui.png
+   " alt=""></a>
+            <span>
+              <% if (user) { %>
+                Logged in as <%=user[0].name%>
+              <% } %>
+              <a class="navitem toggle-cart" href="#">View Cart</a>
+            </span>
+          </div>
+        </nav>
+      </header>
 
 
 <!--Begin Checkout-->
