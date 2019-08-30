@@ -61,7 +61,7 @@ const renderCartItems = function() {
 
     // set onclick for 'x mark remove from cart' located inside the sidebar
   }
-  $('tfoot td.right-align').text(total)
+  $('tfoot td.right-align').text(`$${total.toFixed(2)}`)
 };
 
 $(document).ready(function() {

@@ -12,12 +12,12 @@ module.exports = (db) => {
     // Check for empty form fields
     const user = req.body;
     db.userRegister(user)
-      .then(user => {
-        if (!user) {
+      .then(id => {
+        if (!id) {
           res.send({error: "error"});
           return;
         } else {
-          req.session.userId = user.id;
+          req.session.userId = id[0].id;
           res.redirect("/");
         }
       }).catch(err => console.error(null, err.stack));

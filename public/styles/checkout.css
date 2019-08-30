@@ -297,3 +297,12 @@ text-align: center;
 header#persistant div span a.logged {
   color: rgb(233, 92, 92);
 }
+
+
+div h5 {
+  font-family: 'Kreon', 'serif';
+}
+
+a.logged {
+  font-family: 'Kreon', 'serif';
+}

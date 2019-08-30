@@ -29,12 +29,11 @@
     <header id="persistant">
         <nav class="navbar fixed-top navbar-expand-lg">
           <div>
-            <h1><a href="/">Krusty Aged Crab</a></h1>
+            <h1><a href="/orders">Krusty Aged Crab</a></h1>
             <span>
               <% if (user) { %>
                 <a class="logged" href="/users/orders">Logged in as <%=user[0].name%></a>
               <% } %>
-              <a class="navitem toggle-cart" href="#">View Cart</a>
             </span>
           </div>
         </nav>
