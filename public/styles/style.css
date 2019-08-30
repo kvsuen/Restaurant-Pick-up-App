@@ -499,6 +499,25 @@ div.modal-body div.g-recaptcha {
     padding:0;
     list-style:none;
 }
+
+.dish-name {
+  font-size: 30px;
+}
+
+.dish-desc {
+  font-size: 19px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 1000;
+}
+
+.sec-title {
+  font-size: 40px;
+}
+
+
 .menu-images img {
     -webkit-border-radius:10px;
     -moz-border-radius:10px;
