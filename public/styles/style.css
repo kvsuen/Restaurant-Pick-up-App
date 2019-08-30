@@ -499,6 +499,15 @@ div.modal-body div.g-recaptcha {
     padding:0;
     list-style:none;
 }
+
+.dish-name {
+  font-size: 30px;
+}
+
+.dish-desc {
+  font-size: 15px;
+}
+
 .menu-images img {
     -webkit-border-radius:10px;
     -moz-border-radius:10px;

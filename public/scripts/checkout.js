@@ -68,36 +68,33 @@ $(document).ready(function() {
   renderCartItems();
 
   $("#checkout").on("click", function(event) {
-    event.preventDefault;
+    event.preventDefault();
 
-    const numKeys =   getNumOfItems();
+    const numKeys = getNumOfItems();
     let item;
     let data = [];
     let total = 0;
     for (let index = 0; index < numKeys; index++) {
       item = JSON.parse(window.localStorage.getItem(window.localStorage.key(index)));
-      console.log(77, item);
       data.push(JSON.parse(window.localStorage.getItem(window.localStorage.key(index))));
-      console.log(79, data);
       total = total + Number(item.price * item.quantity);
     }
 
-    console.log(window.localStorage)
-    console.log(data);
-
     $.ajax({
-      method: "POST",
+      type: "POST",
       url: "/checkout",
       data: { data },
-      dataType: "json",
-      success: function() {
-        // $(".estimated-time").text(`Order will be ready in ${time.value}`);
-        console.log('test1')
-      },
-      error: function() {
-        // alert("An AJAX error has occured");
-      }
-    });
+      dataType: "json"
+    })
+      .success(function() {
+        location.href = "/";
+      })
+      .error(function() {
+        setTimeout(() => {
+          location.href = "/";
+        }, 2000);
+      })
+
 
   });
 
