@@ -1,3 +1,5 @@
+
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,8 +37,8 @@ body {
   padding-bottom: 0px;
 }
 
-#crickets {
-  width: 100px;
+#crab {
+  width: 400px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -70,7 +72,7 @@ table td:nth-child(3) {
 .input-field.card-holder,
 .input-field.card-expiration-date {
   display: inline-block;
-  color: black;
+  color: white;
 }
 
 .input-field.cvv {
@@ -214,7 +216,7 @@ html {
 
 header nav.navbar.navbar-expand-lg {
 background-color: rgb(29, 28, 28);
-height: 55px;
+height: 80px;
 font-size: 25px;
 margin-bottom: 0;
 color: white;

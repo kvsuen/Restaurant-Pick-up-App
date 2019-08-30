@@ -50,8 +50,9 @@ module.exports = (db) => {
     )
     .then(messages => {
         console.log('Messages sent!');
-        res.send({hello: "success"});
-        // res.redirect("/");
+        res.status(200);
+        res.redirect("/");
+        // window.location.href="http://www.youtube.com/"
       }).catch(err => console.error(err))
   })
 

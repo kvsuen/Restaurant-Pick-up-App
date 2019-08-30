@@ -6,6 +6,11 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 <link rel="stylesheet" href="/styles/checkout.css">
+
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Kreon:300,400,700'>
+
+<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+
 <!-- partial:index.partial.html -->
 <!-- Compiled and minified JavaScript -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -18,9 +23,6 @@
         <nav class="navbar fixed-top navbar-expand-lg">
           <div>
             <h1><a href="/">Krusty Aged Crab</a></h1>
-            <a class="logo" href="#"><img src="https://i.imgur.com/aGomLui.png
-   https://i.imgur.com/aGomLui.png
-   " alt=""></a>
             <span>
               <% if (user) { %>
                 <a class="logged" href="/users/orders">Logged in as <%=user[0].name%></a>
@@ -37,9 +39,9 @@
 <div class="container">
   <p class="help" style="color:#ffffff;">
   <div class="box card-panel z-depth-3">
-    <div class="merchant">
-      <img id="crickets" src="https://images-platform.99static.com/arg365fIKXGO30UrnwfLBAKdtPc=/0x0:1000x1000/500x500/top/smart/99designs-contests-attachments/98/98509/attachment_98509973" />
       <h5 class="center-align">Krusty Aged Krab</h5>
+    <div class="merchant">
+      <img id="crab" src="https://i.imgur.com/aGomLui.png" />
     </div>
     <div class="invoice">
       <table class="highlight">
@@ -53,7 +55,8 @@
         <tbody id="order-container">
         </tbody>
         <tfoot id="order-total">
-            <td class="right-align bold">Total</td>
+          <th>Total</th>
+            <td class="total right-align bold" colspan="3">Total</td>
         </tfoot>
       </table>
     </div>
