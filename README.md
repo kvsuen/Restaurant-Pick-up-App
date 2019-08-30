@@ -12,19 +12,12 @@ This app was developed using Node.js, Express, PostgreSQL on the back-end and EJ
 * [Kevin Suen](https://github.com/kvsuen)
 
 ## Final Product
-
-Landing page:
-![Landing page](https://i.gyazo.com/95d56d590b20332f9c6d247572dcab01.gif)
-
 Ordering page:
 ![Ordering page](https://i.gyazo.com/b3444799b319f8cc1e2913fa136b53a8.gif)
 
-Checkout page:
-![Checkout page](https://i.gyazo.com/df509ad3cbb4b8fb2c33c4bc89cc4e26.gif)
+![SMS notification for new order sent to Restaurant](https://github.com/kvsuen/Restaurant-Pick-up-App/raw/master/docs/SMS_to_restaurant.jpg)
 
-![SMS notification for new order sent to Restaurant](./docs/SMS_to_restaurant.jpg)
-
-![SMS notification for new order sent to user](./docs/SMS_to_client.png)
+![SMS notification for new order sent to user](https://github.com/kvsuen/Restaurant-Pick-up-App/raw/master/docs/SMS_to_client.png)
 
 
 ## Getting Started
