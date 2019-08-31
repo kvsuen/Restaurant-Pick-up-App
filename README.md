@@ -8,7 +8,7 @@ This app was developed using Node.js, Express, PostgreSQL on the back-end and EJ
 
 ## Contributors
 * [Kevin Yoo](https://github.com/kyoo95)
-* [Azzam Arthar](https://github.com/Azzycodes)
+* [Azzam Athar](https://github.com/Azzycodes)
 * [Kevin Suen](https://github.com/kvsuen)
 
 ## Final Product
