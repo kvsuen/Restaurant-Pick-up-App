@@ -15,10 +15,13 @@ This app was developed using Node.js, Express, PostgreSQL on the back-end and EJ
 Ordering page:
 ![Ordering page](https://i.gyazo.com/b3444799b319f8cc1e2913fa136b53a8.gif)
 
-![SMS notification for new order sent to Restaurant](https://github.com/kvsuen/Restaurant-Pick-up-App/raw/master/docs/SMS_to_restaurant.jpg)
+<p align="center">
+  <img width="400" height="750" alt="SMS notification for new order sent to Restaurant" src="https://github.com/kvsuen/Restaurant-Pick-up-App/raw/master/docs/SMS_to_restaurant.jpg">
+</p>
 
-![SMS notification for new order sent to user](https://github.com/kvsuen/Restaurant-Pick-up-App/raw/master/docs/SMS_to_client.png)
-
+<p align="center">
+  <img width="400" height="750" alt="SMS notification for new order sent to user" src="https://github.com/kvsuen/Restaurant-Pick-up-App/raw/master/docs/SMS_to_client.png">
+</P
 
 ## Getting Started
 
