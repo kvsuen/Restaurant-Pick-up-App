@@ -1,10 +1,10 @@
 (function($,sr) {
 	// debouncing function from John Hann
 	// http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
-	var debounce = function (func, threshold, execAsap) {
-		var timeout;
+	let debounce = function (func, threshold, execAsap) {
+		let timeout;
 		return function debounced () {
-			var obj = this, args = arguments;
+			let obj = this, args = arguments;
 			function delayed () {
 				if (!execAsap)
 				                  func.apply(obj, args);
@@ -32,15 +32,15 @@ $(document).ready(function() {
 	// Set Home Slideshow Height
 	///////////////////////////////
 	function setHomeBannerHeight() {
-		var windowHeight = jQuery(window).height();
+		let windowHeight = jQuery(window).height();
 		jQuery('#header').height(windowHeight);
 	}
 	///////////////////////////////
 	// Center Home Slideshow Text
 	///////////////////////////////
 	function centerHomeBannerText() {
-		var bannerText = jQuery('#header > .center');
-		var bannerTextTop = (jQuery('#header').actual('height')/2) - (jQuery('#header > .center').actual('height')/2) - 20;
+		let bannerText = jQuery('#header > .center');
+		let bannerTextTop = (jQuery('#header').actual('height')/2) - (jQuery('#header > .center').actual('height')/2) - 20;
 		bannerText.css('padding-top', bannerTextTop+'px');
 		bannerText.show();
 	}
@@ -61,8 +61,8 @@ $(document).ready(function() {
 		}
 	}
 	document.onscroll = scroll;
-	var $scrollDownArrow = $('#scrollDownArrow');
-	var animateScrollDownArrow = function() {
+	let $scrollDownArrow = $('#scrollDownArrow');
+	let animateScrollDownArrow = function() {
 		$scrollDownArrow.animate( {
 			top: 5,
 		}
